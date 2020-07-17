@@ -37,6 +37,7 @@ Task Card 하나의 estimated time / consumed time 이 최대 3h 이 넘어가�
 - position : `Clinet`, `Server` 
 - sprint : `Sprint`
 - urgency : `High`, `Middle`, `Low`
+- difficulty: `Bare`, `Advanced`, `NightMare`
 
 ##### Status 관리
 
