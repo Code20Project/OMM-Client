@@ -1,7 +1,7 @@
 ---
 name: Discussion
 about: '논의할 사항이 있는 경우 사용되는 template 입니다. '
-title: ''
+title: '[Discussion]'
 labels: Discussion
 assignees: ''
 
