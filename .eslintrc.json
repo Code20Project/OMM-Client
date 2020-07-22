@@ -18,5 +18,9 @@
         "react"
     ],
     "rules": {
+        "react/jsx-filename-extension": "off",
+        // client와 상의 후 조율할 예정
+        "no-use-before-define": "off",
+        "react/style-prop-object": "off"
     }
 }
