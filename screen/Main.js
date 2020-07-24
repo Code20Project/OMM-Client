@@ -1,12 +1,15 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import {
+  StyleSheet, View, Text, Button,
+} from 'react-native';
 
-import '../css/main.css';
+import mainStyle from '../style/mainStyle';
 
-// App 메인화면
+const styles = StyleSheet.create(mainStyle);
+
 export default function Main() {
   return (
-    <View>
+    <View style={styles.container}>
       <View>
         <Text>
           OOM
