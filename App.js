@@ -1,7 +1,7 @@
 // import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 
-import Main from './screen/Main';
+import Main from './screens/Main';
 
 // App 메인화면
 export default function App() {

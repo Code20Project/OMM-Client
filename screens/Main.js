@@ -3,7 +3,7 @@ import {
   StyleSheet, View, Text, Button,
 } from 'react-native';
 
-import mainStyle from '../style/mainStyle';
+import mainStyle from '../styles/mainStyle';
 
 const styles = StyleSheet.create(mainStyle);
 
