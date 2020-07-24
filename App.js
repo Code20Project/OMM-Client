@@ -5,11 +5,10 @@ import Main from './screen/Main';
 
 // App 메인화면
 export default function App() {
+  // session이 유지가 안 되어 있으면 Main 화면으로 return
   return (
     <Main />
-    // <View style={styles.container}>
-    //   <Text>Open up App.js to start working on your app!</Text>
-    //   <StatusBar style="auto" />
-    // </View>
   );
+
+  // session이 유지 되어 있으면 user main 화면으로 return
 }
