@@ -5,8 +5,10 @@ import {
 import {
   TextField,
 } from 'react-native-material-textfield';
+import { TextButton } from 'react-native-material-buttons';
 
 import loginStyle from '../styles/loginStyle';
+// var Button = require('react-native-material-button');
 
 const styles = StyleSheet.create(loginStyle);
 
@@ -22,6 +24,7 @@ export default function Login() {
             x1: 50,
             y1: 30,
           }}
+          tintColor="#488888"
           keyboardType="phone-pad"
           contentInset={{
             top: 0,
@@ -33,13 +36,20 @@ export default function Login() {
           labelOffset={{
             y1: 30,
           }}
+          tintColor="#488888"
           keyboardType="phone-pad"
           contentInset={{
             top: 0,
           }}
         />
       </View>
-      <View />
+      <View style={{ height: 30 }} />
+      <View>
+        <TextButton title="Login" titleColor="#ffffff" color="#488888" />
+        <View style={{ height: 20 }} />
+        <TextButton style={styles.button} title="Sign Up" titleColor="#488888" />
+      </View>
+
     </View>
   );
 }

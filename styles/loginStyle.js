@@ -8,5 +8,11 @@ module.exports = {
   textfield: {
     width: 160,
   },
-
+  button: {
+    borderWidth: 1,
+    borderColor: '#488888',
+  },
+  color: {
+    themeColor: '#488888',
+  },
 };
