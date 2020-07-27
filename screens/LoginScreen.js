@@ -6,22 +6,37 @@ import {
   TextField,
 } from 'react-native-material-textfield';
 
-import mainStyle from '../styles/loginStyle';
+import loginStyle from '../styles/loginStyle';
 
-const styles = StyleSheet.create(mainStyle);
+const styles = StyleSheet.create(loginStyle);
 
 export default function Login() {
   return (
     <View style={styles.container}>
-      <View style={styles.container}>
+      <View>
         <TextField
+          style={styles.textfield}
           label="ID"
+          labelOffset={{
+            x0: 50,
+            x1: 50,
+            y1: 30,
+          }}
           keyboardType="phone-pad"
-          lineWidth={0.5}
+          contentInset={{
+            top: 0,
+          }}
         />
         <TextField
+          style={styles.textfield}
           label="password"
+          labelOffset={{
+            y1: 30,
+          }}
           keyboardType="phone-pad"
+          contentInset={{
+            top: 0,
+          }}
         />
       </View>
       <View />
