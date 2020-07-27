@@ -8,7 +8,6 @@ import {
 import { TextButton } from 'react-native-material-buttons';
 
 import loginStyle from '../styles/loginStyle';
-// var Button = require('react-native-material-button');
 
 const styles = StyleSheet.create(loginStyle);
 
