@@ -17,13 +17,22 @@ import Header from '../Component/Header';
 
 const commentData = [
   {
-    name: 'choi', comment: 'good', date: '2020.07.11', rate: 5,
+    name: 'choi',
+    comment: 'good',
+    date: '2020.07.11',
+    rate: 5,
   },
   {
-    name: 'choi', comment: 'good', date: '2020.07.11', rate: 3,
+    name: 'choi',
+    comment: 'good',
+    date: '2020.07.11',
+    rate: 3,
   },
   {
-    name: 'choi', comment: 'good', date: '2020.07.11', rate: 2,
+    name: 'choi',
+    comment: 'good',
+    date: '2020.07.11',
+    rate: 2,
   },
 ];
 
