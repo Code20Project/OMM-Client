@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  StyleSheet, View, Text, TextInput,
+  StyleSheet, View, Text, TextInput, Button,
 } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 
@@ -62,7 +62,7 @@ export default function Main() {
         </View>
       </View>
       <View style={styles.radios}>
-        <View style={{ width: '25%', marginTop: 10 }}>
+        <View style={{ width: '37%', marginTop: 10 }}>
           <Text>성별</Text>
         </View>
         <RadioButton.Group>
@@ -79,6 +79,13 @@ export default function Main() {
             <Text style={styles.radioText}>여</Text>
           </View>
         </RadioButton.Group>
+      </View>
+      <View style={styles.button}>
+        <Button
+          title="가입"
+          color="#488888"
+          //  onPress={() => Alert.alert('Simple Button pressed')}
+        />
       </View>
     </View>
   );

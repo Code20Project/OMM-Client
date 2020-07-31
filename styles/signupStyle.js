@@ -31,6 +31,10 @@ module.exports = {
     marginTop: 5,
   },
   radioText: {
-    marginTop: 10,
+    marginTop: 5,
+  },
+  button: {
+    marginTop: 30,
+    width: '50%',
   },
 };
