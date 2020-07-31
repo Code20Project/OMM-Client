@@ -27,6 +27,16 @@ module.exports = {
     borderRadius: 5,
     paddingLeft: 10,
   },
+  checkPassword: {
+    height: 30,
+    width: windowWidth * 0.4,
+    borderColor: 'red',
+    borderWidth: 1,
+    marginLeft: 20,
+    borderRadius: 5,
+    paddingLeft: 10,
+  },
+
   radios: {
     flexDirection: 'row',
     marginTop: 5,

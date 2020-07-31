@@ -10,16 +10,57 @@ const styles = StyleSheet.create(signupStyle);
 
 export default function Main() {
   // state
-  // const [state, setState] = useState({
-  //   mentee_name: '',
-  //   email: '',
-  //   password: '',
-  //   sex: '',
-  //   phone: '',
-  //   birthday: '',
-  // });
+  const [state, setState] = useState({
+    mentee_name: '',
+    email: '',
+    password: '',
+    sex: '남',
+    phone: '',
+    birthday: '',
+  });
 
-  const [sex, setSex] = useState('남');
+  const [confirmPassword, setComfirmPassword] = useState('');
+
+  const setSexHandler = (value) => {
+    setState(
+      { sex: value },
+    );
+  };
+
+  const onChangeText = (text) => {
+    setState(
+      { password: text },
+    );
+  };
+
+  const checkPasswordHandler = () => {
+    if (confirmPassword.length !== 0 && confirmPassword !== state.password) { // password가 일치 하지 않으면
+      return (
+        <View>
+          <TextInput
+            style={styles.checkPassword}
+            placeholder="********"
+            secureTextEntry // 입력한 테스트를 암호화 해주는 속성
+            onChangeText={(text) => setComfirmPassword(text)}
+            value={confirmPassword}
+          />
+          <Text style={{ fontSize: 10, marginLeft: 20, color: 'red' }}>패스워드가 일치하지 않습니다.</Text>
+        </View>
+      );
+    }
+
+    return (
+      <View>
+        <TextInput
+          style={styles.textInput}
+          placeholder="********"
+          secureTextEntry // 입력한 테스트를 암호화 해주는 속성
+          onChangeText={(text) => setComfirmPassword(text)}
+          value={confirmPassword}
+        />
+      </View>
+    );
+  };
 
   useEffect(() => { // 랜더링이 끝나면 useEffect 훅에 입력된 함수가 호출된다.
 
@@ -34,7 +75,7 @@ export default function Main() {
         <View>
           <TextInput
             style={styles.textInput}
-            placeholder="김**"
+            placeholder="홍길동"
           />
         </View>
       </View>
@@ -57,19 +98,16 @@ export default function Main() {
           <TextInput
             style={styles.textInput}
             placeholder="********"
+            secureTextEntry // 입력한 테스트를 암호화 해주는 속성
+            onChangeText={(text) => onChangeText(text)}
           />
         </View>
       </View>
       <View style={styles.textfield}>
-        <View style={styles.text}>
+        <View classname="checkPassword" style={styles.text}>
           <Text>비밀번호 확인</Text>
         </View>
-        <View>
-          <TextInput
-            style={styles.textInput}
-            placeholder="********"
-          />
-        </View>
+        {checkPasswordHandler()}
       </View>
       <View style={styles.textfield}>
         <View style={styles.text}>
@@ -97,7 +135,7 @@ export default function Main() {
         <View style={{ width: '37%', marginTop: 5 }}>
           <Text>성별</Text>
         </View>
-        <RadioButton.Group onValueChange={(value) => setSex(value)} value={sex}>
+        <RadioButton.Group onValueChange={(value) => setSexHandler(value)} value={state.sex}>
           <View style={{ flexDirection: 'row' }}>
             <RadioButton
               value="남"
