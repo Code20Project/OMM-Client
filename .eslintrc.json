@@ -21,6 +21,20 @@
         "react/jsx-filename-extension": "off",
         // client와 상의 후 조율할 예정
         "no-use-before-define": "off",
-        "react/style-prop-object": "off"
+        "react/style-prop-object": "off",
+        "camelcase": "off",
+        "default-case": "off",
+        "no-restricted-syntax": "off",
+        "no-restricted-globals": [
+            "error",
+            {
+                "name": "event",
+                "message": "Use local parameter instead."
+            },
+            {
+                "name": "fdescribe",
+                "message": "Do not commit fdescribe. Use describe instead."
+            }
+        ]
     }
 }
