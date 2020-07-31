@@ -13,17 +13,24 @@ module.exports = {
   },
   textfield: {
     flexDirection: 'row',
+    marginTop: 10,
   },
   text: {
-    position: 'relative',
-    top: 50,
+    width: '25%',
   },
   textInput: {
     height: 30,
     width: windowWidth * 0.4,
-    borderColor: 'gray',
+    borderColor: '#488888',
     borderWidth: 1,
     marginLeft: 20,
+    borderRadius: 5,
   },
-
+  radios: {
+    flexDirection: 'row',
+    marginTop: 5,
+  },
+  radioText: {
+    marginTop: 10,
+  },
 };
