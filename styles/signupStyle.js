@@ -25,6 +25,7 @@ module.exports = {
     borderWidth: 1,
     marginLeft: 20,
     borderRadius: 5,
+    paddingLeft: 10,
   },
   radios: {
     flexDirection: 'row',
