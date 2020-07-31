@@ -25,6 +25,7 @@
     "react/destructuring-assig": "off",
     "react/prop-types": "off",
     "import/no-extraneous-dependencies": "off",
-    "react/destructuring-assignment": "off"
+    "react/destructuring-assignment": "off",
+    "react/no-array-index-key": "off"
   }
 }
