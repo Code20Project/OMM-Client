@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import {
-  StyleSheet, View, Text, TextInput, Button, Alert, Platform,
+  StyleSheet, View, Text, TextInput, Button, Alert,
 } from 'react-native';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import Constants from 'expo-constants';
 
 import signupStyle from '../styles/signupStyle';
 
 const styles = StyleSheet.create(signupStyle);
 
-export default function Login() {
+export default function Login({ navigation }) {
   // 값 셋팅 함수
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -51,45 +50,43 @@ export default function Login() {
   };
 
   return (
-    <View style={{ flex: 1, paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight }}>
-      <View style={{ flex: 1 }} />
-      <KeyboardAwareScrollView>
-        <View style={styles.container}>
-          <View style={styles.textfield}>
-            <View style={styles.text}>
-              <Text>아이디(이메일)</Text>
-            </View>
-            <View>
-              <TextInput
-                style={styles.textInput}
-                placeholder="ID@email.com"
-                onChangeText={(text) => setValueHandler('email', text)}
-              />
-            </View>
-          </View>
-          <View style={styles.textfield}>
-            <View style={styles.text}>
-              <Text>비밀번호</Text>
-            </View>
-            <View>
-              <TextInput
-                style={styles.textInput}
-                placeholder="********"
-                secureTextEntry // 입력한 테스트를 암호화 해주는 속성
-                onChangeText={(text) => setValueHandler('password', text)}
-              />
-            </View>
-          </View>
-          <View style={styles.button}>
-            {setButton()}
+  // flexGrow를 써야 KeyboardAwareScrollView scroll이 움직인다.
+    <KeyboardAwareScrollView contentContainerStyle={{ flexGrow: 1 }} enableOnAndroid>
+      <View style={styles.container}>
+        <View style={styles.textfield}>
+          <View style={styles.text}>
+            <Text>아이디(이메일)</Text>
           </View>
           <View>
-            <Text style={{ color: 'blue', padding: 20 }}>
-              아이디가 없으십니까?
-            </Text>
+            <TextInput
+              style={styles.textInput}
+              placeholder="ID@email.com"
+              onChangeText={(text) => setValueHandler('email', text)}
+            />
           </View>
         </View>
-      </KeyboardAwareScrollView>
-    </View>
+        <View style={styles.textfield}>
+          <View style={styles.text}>
+            <Text>비밀번호</Text>
+          </View>
+          <View>
+            <TextInput
+              style={styles.textInput}
+              placeholder="********"
+              secureTextEntry // 입력한 테스트를 암호화 해주는 속성
+              onChangeText={(text) => setValueHandler('password', text)}
+            />
+          </View>
+        </View>
+        <View style={styles.button}>
+          {setButton()}
+        </View>
+        <View>
+          <Text style={{ color: 'blue', padding: 20 }} onPress={() => navigation.navigate('Signup')}>
+            아이디가 없으십니까?
+          </Text>
+        </View>
+      </View>
+    </KeyboardAwareScrollView>
   );
 }
