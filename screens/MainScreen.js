@@ -26,7 +26,8 @@ export default function Main({ navigation }) {
             <View style={styles.button}>
               <Button
                 title="Mentor"
-                onPress={() => navigation.navigate('Login')}
+                color="#488888"
+                onPress={() => navigation.navigate('Login', { user: 'mentor' })}
               />
             </View>
             <View style={styles.button}>
@@ -35,6 +36,7 @@ export default function Main({ navigation }) {
                   console.log('test');
                 }}
                 title="Mentee"
+                color="#488888"
               />
             </View>
           </View>

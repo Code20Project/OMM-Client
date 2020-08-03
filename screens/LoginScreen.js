@@ -82,7 +82,7 @@ export default function Login({ navigation }) {
           {setButton()}
         </View>
         <View>
-          <Text style={{ color: 'blue', padding: 20 }} onPress={() => navigation.navigate('Signup')}>
+          <Text style={{ color: 'blue', padding: 20 }} onPress={() => navigation.navigate('Signup', { user: 'mentor' })}>
             아이디가 없으십니까?
           </Text>
         </View>
