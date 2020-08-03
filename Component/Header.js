@@ -12,10 +12,7 @@ function Header(props) {
       <View style={styles.leftIconButtonStackRow}>
         <View style={styles.leftIconButtonStack}>
           <TouchableOpacity style={styles.leftIconButton} />
-          <EntypoIcon
-            name="chevron-thin-left"
-            style={styles.HeaderIcon}
-          />
+          <EntypoIcon name="chevron-thin-left" style={styles.HeaderIcon} />
         </View>
 
         <View style={styles.textWrapper}>
@@ -28,11 +25,11 @@ function Header(props) {
       <View style={styles.leftIconButtonStackRowFiller} />
 
       <View style={styles.rightIconsWrapper}>
-        <TouchableOpacity style={styles.iconButton}>
-          <MaterialCommunityIconsIcon
-            name="magnify"
-            style={styles.rightIcon}
-          />
+        <TouchableOpacity
+          style={styles.iconButton}
+          // onPress={() => this.props.navigation.navigate("Details")}
+        >
+          <MaterialCommunityIconsIcon name="magnify" style={styles.rightIcon} />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.iconButton}>

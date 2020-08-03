@@ -26,6 +26,7 @@
     "react/prop-types": "off",
     "import/no-extraneous-dependencies": "off",
     "react/destructuring-assignment": "off",
-    "react/no-array-index-key": "off"
+    "react/no-array-index-key": "off",
+    "react/no-this-in-sfc": "off"
   }
 }

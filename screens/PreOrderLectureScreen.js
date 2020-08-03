@@ -9,23 +9,17 @@ import {
   ScrollView,
 } from 'react-native';
 import { ListItem } from 'react-native-elements';
-// import EntypoIcon from "react-native-vector-icons/Entypo";
+import Icon from 'react-native-vector-icons/AntDesign';
+// ******** 이렇게 네비 하는거는 이거는 구식인가??************
+// import { StackNavigator } from "react-navigation";
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
 import Footer from '../Component/Footer';
 import Header from '../Component/Header';
 
 const list = [
-  //   {
-  //     name: "Amy Farha",
-  //     avatar_url:
-  //       "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
-  //     subtitle: "Vice President"
-  //   },
-  //   {
-  //     name: "Chris Jackson",
-  //     avatar_url:
-  //       "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg",
-  //     subtitle: "Vice Chairman"
-  //   }
   {
     date: '2020.07.19',
     count: '1',
@@ -47,6 +41,9 @@ const list = [
     count: '1',
   },
 ];
+// navigateToAbout = () => {
+//   this.props.navigation.navigate("About");
+// };
 
 export default function PreOrderLectureScreen() {
   return (
@@ -55,13 +52,22 @@ export default function PreOrderLectureScreen() {
       <View>
         {list.map((l, i) => (
           <ListItem
-            // style={styles.listView}
             key={i}
-            // title={l.date}
             title={(
               <View style={styles.titleView}>
-                <Text>{l.date}</Text>
-                <Text style={styles.st}>{l.count}</Text>
+                <View style={styles.container2}>
+                  <Text>{l.date}</Text>
+                </View>
+                <View style={styles.container}>
+                  <Text style={styles.st}>{l.count}</Text>
+                </View>
+                <View>
+                  <TouchableOpacity onPress={() => this.moveDetailPage()}>
+                    <View style={styles.container3}>
+                      <Icon name="right" size={15} color="#7d7d7d" />
+                    </View>
+                  </TouchableOpacity>
+                </View>
               </View>
             )}
             bottomDivider
@@ -74,6 +80,13 @@ export default function PreOrderLectureScreen() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+  container2: {
+    flex: 6,
+  },
+  container3: {
+    marginTop: 2,
     flex: 1,
   },
   titleView: {

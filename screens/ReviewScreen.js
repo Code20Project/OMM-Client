@@ -39,7 +39,6 @@ const commentData = [
 const Rating = (rate) => {
   const ratingViews = [];
   let cnt = rate;
-  // console.log(cnt);
   for (let i = 0; i < 5; i++) {
     if (cnt > 0) {
       ratingViews.push(
@@ -68,11 +67,18 @@ export default function ReviewScreen() {
       {/* Header */}
       <Header title="Review" style={styles.Header} />
       <ScrollView style={styles.scrollView}>
-        <View style={styles.lecture} />
-
-        <View style={styles.lectrueInfo}>
-          <Text>{name}</Text>
-          <Image style={styles.lectureFavorites} />
+        {/* 카드 */}
+        <View style={styles.container2}>
+          <Image
+            source={{
+              uri:
+                'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+            }}
+            style={{ width: 400, height: 300 }}
+          />
+          <View style={styles.lectrueInfo}>
+            <Text>{name}</Text>
+          </View>
         </View>
         <View style={styles.contentContainer}>
           <View style={styles.commentContainer}>
@@ -115,7 +121,7 @@ export default function ReviewScreen() {
               </View>
             </TouchableOpacity>
           </View>
-          <Footer style={styles.Footer} />
+          {/* <Footer style={styles.Footer} /> */}
           {/* <MyTabs></MyTabs> */}
         </View>
       </ScrollView>
@@ -126,6 +132,25 @@ export default function ReviewScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // card만 padding을 줘야 함.
+    // padding: 5
+  },
+  // -----bottom_shadow_container--------
+  container2: {
+    alignItems: 'center',
+    // -----bottom_shadow--------
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: '#ddd',
+    borderBottomWidth: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1,
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 10,
   },
   lecture: {
     // marginTop: 30,
@@ -153,7 +178,7 @@ const styles = StyleSheet.create({
       width: 0,
     },
     // android
-    elevation: 1,
+    elevation: 6,
   },
   lectureFavorites: {
     height: 30,
