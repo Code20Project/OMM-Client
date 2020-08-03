@@ -2,6 +2,7 @@
 const { Dimensions } = require('react-native');
 
 const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 // const windowHeight = Dimensions.get('window').height;
 
 module.exports = {
@@ -10,6 +11,7 @@ module.exports = {
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    height: windowHeight,
   },
   textfield: {
     flexDirection: 'row',
@@ -31,4 +33,5 @@ module.exports = {
     marginTop: 30,
     width: '50%',
   },
+
 };

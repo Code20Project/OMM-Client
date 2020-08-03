@@ -11,7 +11,7 @@ const styles = StyleSheet.create(mainStyle);
 
 const image = require('../imgs/mainImg.jpg');
 
-export default function Main() {
+export default function Main({ navigation }) {
   return (
     <View style={{ flex: 1, paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight }}>
       <ImageBackground source={image} style={styles.image}>
@@ -25,10 +25,8 @@ export default function Main() {
           <View style={{ flex: 1 }}>
             <View style={styles.button}>
               <Button
-                onpress={() => {
-                  console.log('test');
-                }}
                 title="Mentor"
+                onPress={() => navigation.navigate('Login')}
               />
             </View>
             <View style={styles.button}>
