@@ -9,11 +9,8 @@ function Header(props) {
     <View style={[styles.HeaderContainer, props.style]}>
       <View style={styles.leftIconButtonStackRow}>
         <View style={styles.leftIconButtonStack}>
-          <TouchableOpacity style={styles.leftIconButton}></TouchableOpacity>
-          <EntypoIcon
-            name="chevron-thin-left"
-            style={styles.HeaderIcon}
-          ></EntypoIcon>
+          <TouchableOpacity style={styles.leftIconButton} />
+          <EntypoIcon name="chevron-thin-left" style={styles.HeaderIcon} />
         </View>
 
         <View style={styles.textWrapper}>
@@ -23,21 +20,11 @@ function Header(props) {
         </View>
       </View>
 
-      <View style={styles.leftIconButtonStackRowFiller}></View>
+      <View style={styles.leftIconButtonStackRowFiller} />
 
       <View style={styles.rightIconsWrapper}>
         <TouchableOpacity style={styles.iconButton}>
-          <MaterialCommunityIconsIcon
-            name="magnify"
-            style={styles.rightIcon}
-          ></MaterialCommunityIconsIcon>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.iconButton}>
-          <MaterialCommunityIconsIcon
-            name="dots-vertical"
-            style={styles.rightIcon}
-          ></MaterialCommunityIconsIcon>
+          <MaterialCommunityIconsIcon name="magnify" style={styles.rightIcon} />
         </TouchableOpacity>
       </View>
     </View>

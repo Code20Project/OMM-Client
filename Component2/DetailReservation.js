@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
 import Footer from "../Component/Footer";
 import Header from "../Component/Header";
-import Button from "../Component2/Button";
-import TextView from "../Component2/TextView";
+import Button from "./Button";
+import TextView from "./TextView";
 
 //! 강의 예약 정보 화면 - Main <DetailReservation>
 //* Footer
@@ -15,21 +15,17 @@ import TextView from "../Component2/TextView";
 function DetailReservation(props) {
   return (
     <View style={styles.DetailReservationContainer}>
-      <Header title="Lecture reservation" style={styles.Header}></Header>
+      <Header title="Lecture reservation" style={styles.Header} />
 
       <View style={styles.TextSt}>
-        <TextView style={styles.TextView}></TextView>
+        <TextView style={styles.TextView} />
       </View>
 
       <View style={styles.ButtonSt}>
-        <Button
-          caption="BUTTON"
-          caption="예약하기"
-          style={styles.Button}
-        ></Button>
+        <Button caption="BUTTON" caption="예약하기" style={styles.Button} />
       </View>
 
-      <Footer style={styles.Footer}></Footer>
+      <Footer style={styles.Footer} />
     </View>
   );
 }

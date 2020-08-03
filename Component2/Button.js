@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
 function Button(props) {
+  //! Button '정원'에 따라 색갈이 달라져야한다.
+  //! state 필요
+  //! state가 함수로 렌더링 되게한다.
+  //* if/조건문으로 로직 작성
   return (
     <TouchableOpacity style={[styles.container, props.style]}>
       <Text style={styles.caption}>{props.caption || "BUTTON"}</Text>

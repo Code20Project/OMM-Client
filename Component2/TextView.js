@@ -8,32 +8,49 @@ function TextView(props) {
 
       <View style={styles.NameRow}>
         <Text style={styles.Name}>강의명</Text>
-        <Text style={styles.TextSt}>기초 영어{/* 변수 */}</Text>
+        <Text style={styles.TextSt}>
+          기초 영어
+          {/* 변수 */}
+        </Text>
       </View>
 
       <View style={styles.StudyRow}>
         <Text style={styles.StudyMenu}>강의종류</Text>
-        <Text style={styles.language}>Language{/* 변수 */}</Text>
+        <Text style={styles.language}>
+          Language
+          {/* 변수 */}
+        </Text>
       </View>
 
       <View style={styles.TeacherRow}>
         <Text style={styles.Teacher}>강사명</Text>
-        <Text style={styles.Student}>김하늠{/* 변수 */}</Text>
+        <Text style={styles.Student}>
+          김하늠
+          {/* 변수 */}
+        </Text>
       </View>
 
       <View style={styles.StudyTimeRow}>
         <Text style={styles.StudyTime}>강의시간</Text>
-        <Text style={styles.Times}>07:30~10:10{/* 변수 */}</Text>
+        <Text style={styles.Times}>
+          07:30~10:10
+          {/* 변수 */}
+        </Text>
       </View>
 
       <View style={styles.PeopleStack}>
         <Text style={styles.People}>정원</Text>
-        <Text style={styles.PeopleInfo}>정원 6{/* 변수 */}명 중 5{/* 변수 */}명 예약</Text>
+        <Text style={styles.PeopleInfo}>
+          정원 6{/* 변수 */}명 중 5{/* 변수 */}명 예약
+        </Text>
       </View>
 
       <View style={styles.ReservationStateRow}>
         <Text style={styles.ReservationState}>예약상태</Text>
-        <Text style={styles.DoitReservation}>예약가능{/* 변수 */}</Text>
+        <Text style={styles.DoitReservation}>
+          예약가능
+          {/* 변수 */}
+        </Text>
       </View>
     </View>
   );
@@ -44,11 +61,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   ReservationInfo: {
+    fontSize: 20,
+    fontWeight: "bold",
     color: "#121212",
-    height: 50,
+    height: 45,
     // width: 255,
     textAlign: "center",
-    lineHeight: 50,
+    lineHeight: 70,
   },
   Name: {
     // fontFamily: "roboto-700",
