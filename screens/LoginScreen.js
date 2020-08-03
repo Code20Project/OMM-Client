@@ -1,54 +1,95 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  StyleSheet, View,
+  StyleSheet, View, Text, TextInput, Button, Alert, Platform,
 } from 'react-native';
-import {
-  TextField,
-} from 'react-native-material-textfield';
-import { TextButton } from 'react-native-material-buttons';
 
-import loginStyle from '../styles/loginStyle';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import Constants from 'expo-constants';
 
-const styles = StyleSheet.create(loginStyle);
+import signupStyle from '../styles/signupStyle';
+
+const styles = StyleSheet.create(signupStyle);
 
 export default function Login() {
-  return (
-    <View style={styles.container}>
-      <View>
-        <TextField
-          style={styles.textfield}
-          label="ID"
-          labelOffset={{
-            x0: 50,
-            x1: 50,
-            y1: 30,
-          }}
-          tintColor="#488888"
-          keyboardType="phone-pad"
-          contentInset={{
-            top: 0,
-          }}
-        />
-        <TextField
-          style={styles.textfield}
-          label="password"
-          labelOffset={{
-            y1: 30,
-          }}
-          tintColor="#488888"
-          keyboardType="phone-pad"
-          contentInset={{
-            top: 0,
-          }}
-        />
-      </View>
-      <View style={{ height: 30 }} />
-      <View>
-        <TextButton title="Login" titleColor="#ffffff" color="#488888" />
-        <View style={{ height: 20 }} />
-        <TextButton style={styles.button} title="Sign Up" titleColor="#488888" />
-      </View>
+  // 값 셋팅 함수
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  // 서버에 보내줄 정보
+  const inputDataObj = {
+    email,
+    password,
+  };
+
+  const setValueHandler = (key, value) => {
+    switch (key) {
+      case 'email': setEmail(value);
+        break;
+      case 'password': setPassword(value);
+        break;
+    }
+  };
+
+  const setButton = () => { // button의 상태를 결정하는 함수
+    let checkInputValue = false;
+    for (const i in inputDataObj) {
+      if (inputDataObj[i].length === 0) {
+        checkInputValue = true;
+      }
+    }
+
+    return (
+      <Button
+        title="Sign in"
+        color="#488888"
+        disabled={checkInputValue} // boolean function 작성
+      // onPress 이벤트가 발생했을 경우에 서버로 value들을 전송하는 작업이 일어나야 한다.
+      // 또한 성공적으로 가입했으면 로그인 화면으로, 성공적으로 가입이 되지 않았으면 경고 메세지를 띄운다.
+        onPress={() => Alert.alert('Simple Button pressed')}
+      />
+    );
+  };
+
+  return (
+    <View style={{ flex: 1, paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight }}>
+      <View style={{ flex: 1 }} />
+      <KeyboardAwareScrollView>
+        <View style={styles.container}>
+          <View style={styles.textfield}>
+            <View style={styles.text}>
+              <Text>아이디(이메일)</Text>
+            </View>
+            <View>
+              <TextInput
+                style={styles.textInput}
+                placeholder="ID@email.com"
+                onChangeText={(text) => setValueHandler('email', text)}
+              />
+            </View>
+          </View>
+          <View style={styles.textfield}>
+            <View style={styles.text}>
+              <Text>비밀번호</Text>
+            </View>
+            <View>
+              <TextInput
+                style={styles.textInput}
+                placeholder="********"
+                secureTextEntry // 입력한 테스트를 암호화 해주는 속성
+                onChangeText={(text) => setValueHandler('password', text)}
+              />
+            </View>
+          </View>
+          <View style={styles.button}>
+            {setButton()}
+          </View>
+          <View>
+            <Text style={{ color: 'blue', padding: 20 }}>
+              아이디가 없으십니까?
+            </Text>
+          </View>
+        </View>
+      </KeyboardAwareScrollView>
     </View>
   );
 }
