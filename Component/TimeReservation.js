@@ -20,23 +20,19 @@ const styles = StyleSheet.create({
   TimeReservationContainer: {
     minWidth: 288,
     justifyContent: "space-between",
-    backgroundColor: "#323232",
     paddingLeft: 24,
     paddingRight: 24,
     borderRadius: 2,
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "center"
   },
   messageFont: {
     fontSize: 15,
-    color: "rgba(0,0,0,1)",
-  },
-  button: {
-    backgroundColor: "#fff",
+    color: "rgba(0,0,0,1)"
   },
   buttonText: {
     color: "rgba(26,70,193,1)",
-    fontSize: 15,
+    fontSize: 15
   },
 });
 
