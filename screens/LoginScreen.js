@@ -53,7 +53,7 @@ export default function Login({ route, navigation }) {
         onPress={() => {
           // requestAPI
           if (user === 'mentor') {
-            requestAPI.mentor.post('/mentor/signin', { message: 'test' })
+            requestAPI.mentor.post('/signin', { message: 'test' })
               .then((json) => console.log(json));
           } else if (user === 'mentee') {
             requestAPI.mentee(user);
