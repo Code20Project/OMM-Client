@@ -32,11 +32,9 @@ export default function Main({ navigation }) {
             </View>
             <View style={styles.button}>
               <Button
-                onpress={() => {
-                  console.log('test');
-                }}
                 title="Mentee"
                 color="#488888"
+                onPress={() => navigation.navigate('Login', { user: 'mentee' })}
               />
             </View>
           </View>

@@ -7,9 +7,15 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 import signupStyle from '../styles/signupStyle';
 
+// connect
+import requestAPI from '../connect';
+
 const styles = StyleSheet.create(signupStyle);
 
-export default function Login({ navigation }) {
+export default function Login({ route, navigation }) {
+  // router로 전달 받은 param
+  const { user } = route.params;
+
   // 값 셋팅 함수
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -44,7 +50,17 @@ export default function Login({ navigation }) {
         disabled={checkInputValue} // boolean function 작성
       // onPress 이벤트가 발생했을 경우에 서버로 value들을 전송하는 작업이 일어나야 한다.
       // 또한 성공적으로 가입했으면 로그인 화면으로, 성공적으로 가입이 되지 않았으면 경고 메세지를 띄운다.
-        onPress={() => Alert.alert('Simple Button pressed')}
+        onPress={() => {
+          // requestAPI
+          if (user === 'mentor') {
+            requestAPI.mentor.post('/mentor/signin', { message: 'test' })
+              .then((json) => console.log(json));
+          } else if (user === 'mentee') {
+            requestAPI.mentee(user);
+          }
+
+          Alert.alert(user);
+        }}
       />
     );
   };
