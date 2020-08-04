@@ -12,9 +12,6 @@ import StarRating from 'react-native-star-rating';
 import StarActive from '../assets/star_rate-black-18dp.svg';
 import StarInActive from '../assets/star_border-black-18dp.svg';
 
-import Footer from '../Component/Footer';
-import Header from '../Component/Header';
-
 const commentData = [
   {
     name: 'choi',
@@ -64,8 +61,6 @@ export default function ReviewScreen() {
   const name = '[Programming] Javascript #1 ~ #15]';
   return (
     <View style={styles.container}>
-      {/* Header */}
-      <Header title="Review" style={styles.Header} />
       <ScrollView style={styles.scrollView}>
         {/* 카드 */}
         <View style={styles.container2}>
@@ -114,15 +109,12 @@ export default function ReviewScreen() {
               value={input}
               placeholder="comment"
             />
-            {/* 버튼 대신에 사용하는 것 */}
             <TouchableOpacity style={styles.commentButton} underlayColor="#fff">
               <View style={{ justifyContent: 'center' }}>
                 <Text style={styles.commentButtonText}>Enter</Text>
               </View>
             </TouchableOpacity>
           </View>
-          {/* <Footer style={styles.Footer} /> */}
-          {/* <MyTabs></MyTabs> */}
         </View>
       </ScrollView>
     </View>
@@ -157,28 +149,11 @@ const styles = StyleSheet.create({
     height: 300,
     backgroundColor: '#e93e42',
   },
-  Header: {
-    marginTop: 30,
-    justifyContent: 'center',
-    textAlign: 'center',
-    // alignItems: "center"
-  },
-  Footer: {
-    backgroundColor: 'rgba(85,136,136,1)',
-  },
   lectrueInfo: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 16,
     justifyContent: 'space-between',
-    shadowOpacity: 1,
-    shadowRadius: 3,
-    shadowOffset: {
-      height: 1,
-      width: 0,
-    },
-    // android
-    elevation: 6,
   },
   lectureFavorites: {
     height: 30,
