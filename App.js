@@ -10,6 +10,6 @@ export default function App() {
   // session이 유지가 안 되어 있으면 Main 화면으로 return
   // return <ReviewScreen />;
   // return <PreOrderLectureScreen />;
-  // return <SearchScreen />;
-  return <PreOrderLectureDetailScreen />;
+  return <SearchScreen />;
+  // return <PreOrderLectureDetailScreen />;
 }

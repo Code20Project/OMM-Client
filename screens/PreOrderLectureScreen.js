@@ -16,9 +16,6 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Footer from '../Component/Footer';
-import Header from '../Component/Header';
-
 const list = [
   {
     date: '2020.07.19',
@@ -48,7 +45,6 @@ const list = [
 export default function PreOrderLectureScreen() {
   return (
     <View style={styles.container}>
-      <Header title="Pre-order-lecture" style={styles.Header} />
       <View>
         {list.map((l, i) => (
           <ListItem
@@ -96,27 +92,10 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     marginLeft: 30,
   },
-  Header: {
-    marginTop: 30,
-    justifyContent: 'center',
-    textAlign: 'center',
-    // alignItems: "center"
-  },
-  Footer: {
-    backgroundColor: 'rgba(85,136,136,1)',
-  },
   lectrueInfo: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 16,
     justifyContent: 'space-between',
-    shadowOpacity: 1,
-    shadowRadius: 3,
-    shadowOffset: {
-      height: 1,
-      width: 0,
-    },
-    // android
-    elevation: 1,
   },
 });

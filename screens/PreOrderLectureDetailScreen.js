@@ -8,13 +8,6 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
-import { Card } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/AntDesign';
-import Icon2 from 'react-native-vector-icons/FontAwesome';
-
-import Footer from '../Component/Footer';
-import Header from '../Component/Header';
-// import { FlatList } from "react-native-gesture-handler";
 
 const DATA = [
   {
@@ -68,16 +61,16 @@ const DATA = [
     image: 'https://lorempixel.com/400/200/nature/5/',
   },
 ];
-const Item = ({ item, onPress, style }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
-    <Text style={styles.title}>{item.title}</Text>
-  </TouchableOpacity>
-);
+// const Item = ({ item, onPress, style }) => (
+//   <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
+//     <Text style={styles.title}>{item.title}</Text>
+//   </TouchableOpacity>
+// );
 
 export default function PreOrderLectureDetailScreen() {
   return (
     <View style={styles.container}>
-      <Header title="Pre-order-lecture" style={styles.Header} />
+      {/* <Header title="Pre-order-lecture" style={styles.Header} /> */}
       <View style={styles.container}>
         <FlatList
           style={styles.list}
