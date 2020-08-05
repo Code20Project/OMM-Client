@@ -53,10 +53,13 @@ export default function Login({ route, navigation }) {
         onPress={() => {
           // requestAPI
           if (user === 'mentor') {
-            requestAPI.mentor.post('/signin', { message: 'test' })
+            requestAPI.mentor.post('/signin', inputDataObj)
               .then((json) => console.log(json));
+            // mentor 홈 화면으로 이동하는 이벤트가 발생되어야 한다.
           } else if (user === 'mentee') {
-            requestAPI.mentee(user);
+            requestAPI.mentee.post('/signin', inputDataObj)
+              .then((json) => console.log(json));
+            // mentee 홈 화면으로 이동하는 이벤트가 발생되어야 한다.
           }
 
           Alert.alert(user);
@@ -77,6 +80,7 @@ export default function Login({ route, navigation }) {
             <TextInput
               style={styles.textInput}
               placeholder="ID@email.com"
+              value={email}
               onChangeText={(text) => setValueHandler('email', text)}
             />
           </View>
@@ -89,6 +93,7 @@ export default function Login({ route, navigation }) {
             <TextInput
               style={styles.textInput}
               placeholder="********"
+              value={password}
               secureTextEntry // 입력한 테스트를 암호화 해주는 속성
               onChangeText={(text) => setValueHandler('password', text)}
             />
@@ -98,7 +103,15 @@ export default function Login({ route, navigation }) {
           {setButton()}
         </View>
         <View>
-          <Text style={{ color: 'blue', padding: 20 }} onPress={() => navigation.navigate('Signup', { user: 'mentor' })}>
+          <Text
+            style={{ color: 'blue', padding: 20 }}
+            onPress={() => {
+            // state값들을 초기화 해줘야 한다.
+              setValueHandler('email', '');
+              setValueHandler('password', '');
+              navigation.navigate('Signup', { user: 'mentor' });
+            }}
+          >
             아이디가 없으십니까?
           </Text>
         </View>
