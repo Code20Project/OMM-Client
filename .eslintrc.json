@@ -1,41 +1,53 @@
 {
-    "env": {
-        "browser": true,
-        "es2020": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
-    ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 11,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
-    ],
-    "rules": {
-        "react/jsx-filename-extension": "off",
-        "react/prop-types": "off",
-        // client와 상의 후 조율할 예정
-        "no-use-before-define": "off",
-        "react/style-prop-object": "off",
-        "camelcase": "off",
-        "default-case": "off",
-        "no-restricted-syntax": "off",
-        "no-restricted-globals": [
-            "error",
-            {
-                "name": "event",
-                "message": "Use local parameter instead."
-            },
-            {
-                "name": "fdescribe",
-                "message": "Do not commit fdescribe. Use describe instead."
-            }
-        ]
-    }
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "extends": [
+      "plugin:react/recommended",
+      "airbnb"
+  ],
+  "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true
+      },
+      "ecmaVersion": 11,
+      "sourceType": "module"
+  },
+  "plugins": [
+      "react"
+  ],
+  "rules": {
+      "react/jsx-filename-extension": "off",
+      "react/prop-types": "off",
+      // client와 상의 후 조율할 예정
+      "no-unused-vars": "off",
+      "no-undef": "off",
+      "no-plusplus": "off",
+      "no-use-before-define": "off",
+      "react/style-prop-object": "off",
+      "camelcase": "off",
+      "default-case": "off",
+      "no-restricted-syntax": "off",
+      "no-restricted-globals": [
+          "error",
+          {
+              "name": "event",
+              "message": "Use local parameter instead."
+          },
+          {
+              "name": "fdescribe",
+              "message": "Do not commit fdescribe. Use describe instead."
+          }
+      ],
+     // 주석
+    "import/no-extraneous-depe": "off",
+    "react/destructuring-assig": "off",
+    "react/prop-types": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/destructuring-assignment": "off",
+    "react/no-array-index-key": "off",
+    "react/no-this-in-sfc": "off",
+    "no-unused-expressions": "off"
+  }
 }
