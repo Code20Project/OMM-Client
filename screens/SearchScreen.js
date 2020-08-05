@@ -102,11 +102,11 @@ export default function SearchScreen() {
   const WishListIcon = (item) => (
     <Icon2
       name="bookmark"
-        // color={state.bookmark ? "#7de7d7" : "#23484a"}
+      // color={state.bookmark ? "#7de7d7" : "#23484a"}
       color={toggleActiveStyle(item.wishList)}
       size={15}
-        // value={state.bookmark}
-        // key={item.id}
+      // value={state.bookmark}
+      // key={item.id}
       onPress={() => {
         toggleActive(item.id);
       }}
@@ -119,14 +119,8 @@ export default function SearchScreen() {
     <View style={styles.card}>
       <Image style={styles.cardImage} source={{ uri: item.image }} />
       <View style={styles.cardFooter}>
-        <View style={styles.socialBarContainer}>
-          <View style={styles.socialBarSection}>
-            <View style={styles.socialBarSection}>
-              <Text style={styles.socialBarLabel}>{item.likes}</Text>
-              <View style={styles.container3}>{WishListIcon(item)}</View>
-            </View>
-          </View>
-        </View>
+        <Text style={styles.socialBarLabel}>{item.likes}</Text>
+        <View style={styles.container3}>{WishListIcon(item)}</View>
       </View>
     </View>
   );
