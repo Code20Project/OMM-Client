@@ -5,6 +5,11 @@ import {
 
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 
+import Tab1 from './Tab1';
+import Tab2 from './Tab2';
+import Tab3 from './Tab3';
+import Tab4 from './Tab4';
+
 export default function ReviewScreen() {
   const name = '[Programming] Javascript #1 ~ #15]';
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -32,8 +37,7 @@ export default function ReviewScreen() {
       <View style={styles.container2}>
         <Image
           source={{
-            uri:
-              'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+            uri: 'https://lorempixel.com/400/200/nature/6/',
           }}
           style={{ width: 400, height: 300 }}
         />
@@ -64,11 +68,15 @@ export default function ReviewScreen() {
         activeTabTextStyle={{ color: '#888888' }}
       />
       {customStyleIndex === 0 && (
-        <Text style={styles.tabContent}> Tab one</Text>
+        // <Text style={styles.tabContent}> Tab one</Text>
+        <Tab1 />
       )}
       {customStyleIndex === 1 && (
-        <Text style={styles.tabContent}> Tab two</Text>
+        // <Text style={styles.tabContent}> Tab two</Text>
+        <Tab2 />
       )}
+      {customStyleIndex === 2 && <Tab3 />}
+      {customStyleIndex === 3 && <Tab4 />}
     </View>
   );
 }
@@ -107,7 +115,9 @@ const styles = StyleSheet.create({
     padding: 16,
     justifyContent: 'space-between',
   },
-  tabsContainerStyle: {
-    padding: 8,
+  tabContent: {
+    color: '#444444',
+    fontSize: 18,
+    margin: 8,
   },
 });

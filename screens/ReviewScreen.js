@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     paddingTop: 16,
     paddingBottom: 16,
   },
-  commentContainer: {},
+  // commentContainer: {},
   comment: {
     flexDirection: 'row',
     alignItems: 'center',
