@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet, View, Text, TextInput, Button, Alert, Image, TouchableOpacity, // Platform,
 } from 'react-native';
@@ -7,6 +7,8 @@ import { RadioButton } from 'react-native-paper';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 // mentor 자격인증 사진 업로드를 구현하기 위한 모듈
 import * as Permissions from 'expo-permissions';
+// mentor MediaLibrary를 이용해 사진 정보 가져오기 위한 모듈
+import * as MediaLibrary from 'expo-media-library';
 
 // import Constants from 'expo-constants';
 
@@ -23,8 +25,14 @@ export default function Signup({ route, navigation }) {
   // router로 전달 받은 param
   const { user } = route.params;
 
-  // 접근 권한 허용 함수
+  // 접근 권한 상태를 가져오는 함수
+  const getPermission = async () => {
+    const { status } = await Permissions.getAsync(Permissions.CAMERA);
+    console.log(status);
+    return status;
+  };
 
+  // 접근 권한 허용 함수
   const requestPermission = async () => {
     const response = await Permissions.askAsync(Permissions.CAMERA);
     console.log(response);
@@ -42,6 +50,16 @@ export default function Signup({ route, navigation }) {
   // mentor에게만 필요한 state
   const [qualification, setQualification] = useState();
 
+  // 장치 접근 관련 상태 함수
+  const [cameraPermission, setCameraPermission] = useState();
+
+  // 선택된 사진
+  const [selected, setSelected] = useState();
+  // 로딩
+  const [loading, setLoading] = useState(false);
+  // 접근 권한 허용했는지
+  const [hasAllow, setHasAllow] = useState(false);
+
   const setValueHandler = (key, value) => {
     switch (key) {
       case 'mentee_name': setMentee_name(value);
@@ -57,6 +75,8 @@ export default function Signup({ route, navigation }) {
       case 'phone': setPhone(value);
         break;
       case 'birthday': setBirthday(value);
+        break;
+      case 'qualification': setQualification(value);
         break;
     }
   };
@@ -120,7 +140,11 @@ export default function Signup({ route, navigation }) {
           checkInputValue = false;
         }
       }
-      // qualification도 채워졌는지 검사하는 로직도 넣어야 한다.
+      // 이미지 업로드 관련한 부분은 나중에 구현할 예정
+      // qualification에 파일이 들어있지 않으면 false
+      // if (mentorInputDataObj.qualification === undefined) {
+      //   checkInputValue = false;
+      // }
     }
 
     if (user === mentee) {
@@ -160,7 +184,25 @@ export default function Signup({ route, navigation }) {
             <Text>멘토자격인증</Text>
           </View>
           {/* img click 이벤트를 줄 수 있다. */}
-          <TouchableOpacity style={styles.imgView} onPress={() => { console.log('buttonPress'); }}>
+          <TouchableOpacity
+            style={styles.imgView}
+            onPress={async () => {
+              // 이미지 업로드 관련한 부분은 나중에 구현할 예정
+              // hasAllow = await MediaLibrary.getPermissionsAsync();
+              // if(hasAllow !== 'granted')
+              // {
+              //   let {status} = await MediaLibrary.requestPermissionsAsync();
+              //   await setHasAllow(status);
+              // }
+              // else
+              // {
+
+              // }
+
+              // console.log(hasAllow);
+              console.log('사진을 첨부할 수 있게 해야 합니다.');
+            }}
+          >
             <Image
               style={styles.img}
               source={image}
@@ -171,9 +213,9 @@ export default function Signup({ route, navigation }) {
     }
   };
 
-  // useEffect(() => { // 랜더링이 끝나면 useEffect 훅에 입력된 함수가 호출된다.
-  //   requestPermission();
-  // }, []);
+  useEffect(() => { // 랜더링이 끝나면 useEffect[] 훅에 입력된 함수가 호출된다.
+    requestPermission();
+  }, []);
 
   return (
   // <View style={{ flex: 1, paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight }}>
