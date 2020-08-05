@@ -109,7 +109,11 @@ export default function Login({ route, navigation }) {
             // state값들을 초기화 해줘야 한다.
               setValueHandler('email', '');
               setValueHandler('password', '');
-              navigation.navigate('Signup', { user: 'mentor' });
+              if (user === 'mentor') {
+                navigation.navigate('Signup', { user: 'mentor' });
+              } else if (user === 'mentee') {
+                navigation.navigate('Signup', { user: 'mentee' });
+              }
             }}
           >
             아이디가 없으십니까?
