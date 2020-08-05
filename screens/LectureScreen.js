@@ -1,20 +1,14 @@
 import React, { useState } from 'react';
 import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  ScrollView,
+  StyleSheet, View, Text, Image,
 } from 'react-native';
 
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 
 export default function ReviewScreen() {
   const name = '[Programming] Javascript #1 ~ #15]';
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const [customStyleIndex, setcustomStyleIndex] = React.useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [customStyleIndex, setcustomStyleIndex] = useState(0);
 
   //   const handleIndexChange = index => {
   //     this.setState({
@@ -29,10 +23,7 @@ export default function ReviewScreen() {
 
   const handleCustomIndexSelect = (index) => {
     // handle tab selection for custom Tab Selection SegmentedControlTab
-    setcustomStyleIndex((prevState) => ({
-      ...prevState,
-      customStyleIndex: index,
-    }));
+    setcustomStyleIndex(index);
   };
 
   return (
@@ -61,6 +52,7 @@ export default function ReviewScreen() {
           height: 50,
           backgroundColor: '#F2F2F2',
           padding: 8,
+          marginTop: 8,
         }}
         tabStyle={{
           backgroundColor: '#F2F2F2',
