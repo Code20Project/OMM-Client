@@ -2,7 +2,6 @@
 const { Dimensions } = require('react-native');
 
 const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
 // const windowHeight = Dimensions.get('window').height;
 
 module.exports = {
@@ -11,7 +10,6 @@ module.exports = {
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    height: windowHeight,
   },
   textfield: {
     flexDirection: 'row',
@@ -29,9 +27,25 @@ module.exports = {
     borderRadius: 5,
     paddingLeft: 10,
   },
+  checkPassword: {
+    height: 30,
+    width: windowWidth * 0.4,
+    borderColor: 'red',
+    borderWidth: 1,
+    marginLeft: 20,
+    borderRadius: 5,
+    paddingLeft: 10,
+  },
+
+  radios: {
+    flexDirection: 'row',
+    marginTop: 5,
+  },
+  radioText: {
+    marginTop: 5,
+  },
   button: {
     marginTop: 30,
     width: '50%',
   },
-
 };
