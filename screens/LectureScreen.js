@@ -9,18 +9,12 @@ import Tab1 from './Tab1';
 import Tab2 from './Tab2';
 import Tab3 from './Tab3';
 import Tab4 from './Tab4';
+import Tab5 from './Tab5';
 
 export default function ReviewScreen() {
   const name = '[Programming] Javascript #1 ~ #15]';
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [customStyleIndex, setcustomStyleIndex] = useState(0);
-
-  //   const handleIndexChange = index => {
-  //     this.setState({
-  //       ...this.state,
-  //       selectedIndex: index
-  //     });
-  //   };
 
   const handleIndexChange = (index) => {
     setSelectedIndex(index);
@@ -67,16 +61,11 @@ export default function ReviewScreen() {
         tabTextStyle={{ color: '#444444', fontWeight: 'bold' }}
         activeTabTextStyle={{ color: '#888888' }}
       />
-      {customStyleIndex === 0 && (
-        // <Text style={styles.tabContent}> Tab one</Text>
-        <Tab1 />
-      )}
-      {customStyleIndex === 1 && (
-        // <Text style={styles.tabContent}> Tab two</Text>
-        <Tab2 />
-      )}
+      {customStyleIndex === 0 && <Tab1 />}
+      {customStyleIndex === 1 && <Tab2 />}
       {customStyleIndex === 2 && <Tab3 />}
       {customStyleIndex === 3 && <Tab4 />}
+      {customStyleIndex === 4 && <Tab5 />}
     </View>
   );
 }
