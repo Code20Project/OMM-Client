@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import {
-  StyleSheet, View, Text, TextInput, Button, Alert, // Platform,
+  StyleSheet, View, Text, TextInput, Button, Alert, Image, TouchableOpacity, // Platform,
 } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+// mentor 자격인증 사진 업로드를 구현하기 위한 모듈
+import * as Permissions from 'expo-permissions';
+
 // import Constants from 'expo-constants';
 
 import signupStyle from '../styles/signupStyle';
@@ -12,8 +15,21 @@ import signupStyle from '../styles/signupStyle';
 // } from 'react-native-responsive-screen';
 
 const styles = StyleSheet.create(signupStyle);
+const image = require('../imgs/mentorSignIn.png');
 
-export default function Main() {
+export default function Signup({ route, navigation }) {
+  const mentor = 'mentor';
+  const mentee = 'mentee';
+  // router로 전달 받은 param
+  const { user } = route.params;
+
+  // 접근 권한 허용 함수
+
+  const requestPermission = async () => {
+    const response = await Permissions.askAsync(Permissions.CAMERA);
+    console.log(response);
+  };
+
   // 값들을 셋팅하는 함수
   const [mentee_name, setMentee_name] = useState('');
   const [email, setEmail] = useState('');
@@ -22,6 +38,9 @@ export default function Main() {
   const [selectedSex, setSelectedSex] = useState('남');
   const [phone, setPhone] = useState('');
   const [birthday, setBirthday] = useState('');
+
+  // mentor에게만 필요한 state
+  const [qualification, setQualification] = useState();
 
   const setValueHandler = (key, value) => {
     switch (key) {
@@ -42,14 +61,24 @@ export default function Main() {
     }
   };
 
-  // 서버에 보내줄 정보
-  const inputDataObj = {
+  // mentee 서버에 보내줄 정보
+  const menteeInputDataObj = {
     mentee_name,
     email,
     password,
     sex: selectedSex,
     phone,
     birthday,
+  };
+
+  const mentorInputDataObj = {
+    mentee_name,
+    email,
+    password,
+    sex: selectedSex,
+    phone,
+    birthday,
+    qualification,
   };
 
   let checkPassword = false;
@@ -84,9 +113,21 @@ export default function Main() {
 
   const setButton = () => { // button의 상태를 결정하는 함수
     let checkInputValue = true;
-    for (const i in inputDataObj) {
-      if (inputDataObj[i].length === 0) {
-        checkInputValue = false;
+
+    if (user === mentor) {
+      for (const i in mentorInputDataObj) {
+        if (i !== 'qualification' && mentorInputDataObj[i].length === 0) {
+          checkInputValue = false;
+        }
+      }
+      // qualification도 채워졌는지 검사하는 로직도 넣어야 한다.
+    }
+
+    if (user === mentee) {
+      for (const i in menteeInputDataObj) {
+        if (menteeInputDataObj[i].length === 0) {
+          checkInputValue = false;
+        }
       }
     }
 
@@ -109,9 +150,30 @@ export default function Main() {
     );
   };
 
-  // useEffect(() => { // 랜더링이 끝나면 useEffect 훅에 입력된 함수가 호출된다.
+  // 멘토 인증 자격 field를 랜더링 하는 함수 작성
+  const mentorImageUpload = () => {
+    // mentor일 때만 랜더링 한다.
+    if (user === mentor) {
+      return (
+        <View style={styles.textfield}>
+          <View style={styles.text}>
+            <Text>멘토자격인증</Text>
+          </View>
+          {/* img click 이벤트를 줄 수 있다. */}
+          <TouchableOpacity style={styles.imgView} onPress={() => { console.log('buttonPress'); }}>
+            <Image
+              style={styles.img}
+              source={image}
+            />
+          </TouchableOpacity>
+        </View>
+      );
+    }
+  };
 
-  // });
+  // useEffect(() => { // 랜더링이 끝나면 useEffect 훅에 입력된 함수가 호출된다.
+  //   requestPermission();
+  // }, []);
 
   return (
   // <View style={{ flex: 1, paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight }}>
@@ -184,6 +246,8 @@ export default function Main() {
             />
           </View>
         </View>
+        {/* 멘토 자격인증이 들어갈 자리 */ }
+        {mentorImageUpload()}
         <View style={styles.radios}>
           <View style={{ width: '37%', marginTop: 5 }}>
             <Text>성별</Text>
@@ -205,6 +269,7 @@ export default function Main() {
             </View>
           </RadioButton.Group>
         </View>
+
         <View style={styles.button}>
           {/* <Button
           title="가입"
