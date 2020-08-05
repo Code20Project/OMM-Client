@@ -16,6 +16,9 @@ import signupStyle from '../styles/signupStyle';
 // import { widthPercentageToDP as wp, heightPercentageToDP as hp
 // } from 'react-native-responsive-screen';
 
+// connect
+import requestAPI from '../connect';
+
 const styles = StyleSheet.create(signupStyle);
 const image = require('../imgs/mentorSignIn.png');
 
@@ -169,7 +172,20 @@ export default function Signup({ route, navigation }) {
         disabled={buttonState} // boolean function 작성
     // onPress 이벤트가 발생했을 경우에 서버로 value들을 전송하는 작업이 일어나야 한다.
     // 또한 성공적으로 가입했으면 로그인 화면으로, 성공적으로 가입이 되지 않았으면 경고 메세지를 띄운다.
-        onPress={() => Alert.alert('Simple Button pressed')}
+        onPress={() => {
+          // requestAPI
+          if (user === 'mentor') {
+            requestAPI.mentor.post('/signup', mentorInputDataObj)
+              .then((json) => {
+                console.log(json);
+              });
+            // 성공하면 mentor Login 화면으로 이동하는 이벤트가 발생되어야 한다.
+          } else if (user === 'mentee') {
+            requestAPI.mentee.post('/signup', menteeInputDataObj)
+              .then((json) => console.log(json));
+            // 성공하면 mentee Login 화면으로 이동하는 이벤트가 발생되어야 한다.
+          }
+        }}
       />
     );
   };

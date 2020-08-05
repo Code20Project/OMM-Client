@@ -23,6 +23,8 @@ module.exports = {
         'Content-Type': 'application/json',
       },
     })
+    // console.log('token: ', res.headers.get('x-access-token'));
+    // headers에 담겨져 있는 jwt token을 가져오도록 한다.
       .then((res) => res.json()),
   },
 };
