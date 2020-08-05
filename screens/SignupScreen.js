@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import {
-  StyleSheet, View, Text, TextInput, Button, Alert, Platform,
+  StyleSheet, View, Text, TextInput, Button, Alert, // Platform,
 } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import Constants from 'expo-constants';
+// import Constants from 'expo-constants';
 
 import signupStyle from '../styles/signupStyle';
+// import { widthPercentageToDP as wp, heightPercentageToDP as hp
+// } from 'react-native-responsive-screen';
 
 const styles = StyleSheet.create(signupStyle);
 
@@ -112,100 +114,99 @@ export default function Main() {
   // });
 
   return (
-    <View style={{ flex: 1, paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight }}>
-      <View style={{ flex: 1 }} />
-      <KeyboardAwareScrollView>
-        <View style={styles.container}>
-          <View style={styles.textfield}>
-            <View style={styles.text}>
-              <Text>이름</Text>
-            </View>
-            <View>
-              <TextInput
-                style={styles.textInput}
-                placeholder="홍길동"
-                onChangeText={(text) => setValueHandler('mentee_name', text)}
+  // <View style={{ flex: 1, paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight }}>
+    <KeyboardAwareScrollView contentContainerStyle={{ flexGrow: 1 }} enableOnAndroid>
+      <View style={styles.container}>
+        <View style={styles.textfield}>
+          <View style={styles.text}>
+            <Text>이름</Text>
+          </View>
+          <View>
+            <TextInput
+              style={styles.textInput}
+              placeholder="홍길동"
+              onChangeText={(text) => setValueHandler('mentee_name', text)}
+            />
+          </View>
+        </View>
+        <View style={styles.textfield}>
+          <View style={styles.text}>
+            <Text>아이디(이메일)</Text>
+          </View>
+          <View>
+            <TextInput
+              style={styles.textInput}
+              placeholder="ID@email.com"
+              onChangeText={(text) => setValueHandler('email', text)}
+            />
+          </View>
+        </View>
+        <View style={styles.textfield}>
+          <View style={styles.text}>
+            <Text>비밀번호</Text>
+          </View>
+          <View>
+            <TextInput
+              style={styles.textInput}
+              placeholder="********"
+              secureTextEntry // 입력한 테스트를 암호화 해주는 속성
+              onChangeText={(text) => setValueHandler('password', text)}
+            />
+          </View>
+        </View>
+        <View style={styles.textfield}>
+          <View classname="checkPassword" style={styles.text}>
+            <Text>비밀번호 확인</Text>
+          </View>
+          {checkPasswordHandler()}
+        </View>
+        <View style={styles.textfield}>
+          <View style={styles.text}>
+            <Text>휴대폰 번호</Text>
+          </View>
+          <View>
+            <TextInput
+              style={styles.textInput}
+              placeholder="01000000000"
+              onChangeText={(text) => setValueHandler('phone', text)}
+            />
+          </View>
+        </View>
+        <View style={styles.textfield}>
+          <View style={styles.text}>
+            <Text>생년월일</Text>
+          </View>
+          <View>
+            <TextInput
+              style={styles.textInput}
+              placeholder="000000(6자리)"
+              onChangeText={(text) => setValueHandler('birthday', text)}
+            />
+          </View>
+        </View>
+        <View style={styles.radios}>
+          <View style={{ width: '37%', marginTop: 5 }}>
+            <Text>성별</Text>
+          </View>
+          <RadioButton.Group onValueChange={(value) => setValueHandler('selectedSex', value)} value={selectedSex}>
+            <View style={{ flexDirection: 'row' }}>
+              <RadioButton
+                value="남"
+                color="#488888"
               />
+              <Text style={styles.radioText}>남</Text>
             </View>
-          </View>
-          <View style={styles.textfield}>
-            <View style={styles.text}>
-              <Text>아이디(이메일)</Text>
-            </View>
-            <View>
-              <TextInput
-                style={styles.textInput}
-                placeholder="ID@email.com"
-                onChangeText={(text) => setValueHandler('email', text)}
+            <View style={{ flexDirection: 'row', marginLeft: 20 }}>
+              <RadioButton
+                value="여"
+                color="#488888"
               />
+              <Text style={styles.radioText}>여</Text>
             </View>
-          </View>
-          <View style={styles.textfield}>
-            <View style={styles.text}>
-              <Text>비밀번호</Text>
-            </View>
-            <View>
-              <TextInput
-                style={styles.textInput}
-                placeholder="********"
-                secureTextEntry // 입력한 테스트를 암호화 해주는 속성
-                onChangeText={(text) => setValueHandler('password', text)}
-              />
-            </View>
-          </View>
-          <View style={styles.textfield}>
-            <View classname="checkPassword" style={styles.text}>
-              <Text>비밀번호 확인</Text>
-            </View>
-            {checkPasswordHandler()}
-          </View>
-          <View style={styles.textfield}>
-            <View style={styles.text}>
-              <Text>휴대폰 번호</Text>
-            </View>
-            <View>
-              <TextInput
-                style={styles.textInput}
-                placeholder="01000000000"
-                onChangeText={(text) => setValueHandler('phone', text)}
-              />
-            </View>
-          </View>
-          <View style={styles.textfield}>
-            <View style={styles.text}>
-              <Text>생년월일</Text>
-            </View>
-            <View>
-              <TextInput
-                style={styles.textInput}
-                placeholder="000000(6자리)"
-                onChangeText={(text) => setValueHandler('birthday', text)}
-              />
-            </View>
-          </View>
-          <View style={styles.radios}>
-            <View style={{ width: '37%', marginTop: 5 }}>
-              <Text>성별</Text>
-            </View>
-            <RadioButton.Group onValueChange={(value) => setValueHandler('selectedSex', value)} value={selectedSex}>
-              <View style={{ flexDirection: 'row' }}>
-                <RadioButton
-                  value="남"
-                  color="#488888"
-                />
-                <Text style={styles.radioText}>남</Text>
-              </View>
-              <View style={{ flexDirection: 'row', marginLeft: 20 }}>
-                <RadioButton
-                  value="여"
-                  color="#488888"
-                />
-                <Text style={styles.radioText}>여</Text>
-              </View>
-            </RadioButton.Group>
-          </View>
-          <View style={styles.button}>
-            {/* <Button
+          </RadioButton.Group>
+        </View>
+        <View style={styles.button}>
+          {/* <Button
           title="가입"
           color="#488888"
           disabled={setButton()} // boolean function 작성
@@ -214,10 +215,10 @@ export default function Main() {
             // onPress={() => console.log('onPress')}
             // Alert.alert('Simple Button pressed')
         /> */}
-            {setButton()}
-          </View>
+          {setButton()}
         </View>
-      </KeyboardAwareScrollView>
-    </View>
+      </View>
+    </KeyboardAwareScrollView>
+  // </View>
   );
 }
