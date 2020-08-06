@@ -1,27 +1,20 @@
 import React, { useState } from 'react';
 import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  ScrollView,
+  StyleSheet, View, Text, Image,
 } from 'react-native';
 
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 
+import Tab1 from './Tab1';
+import Tab2 from './Tab2';
+import Tab3 from './Tab3';
+import Tab4 from './Tab4';
+import Tab5 from './Tab5';
+
 export default function ReviewScreen() {
   const name = '[Programming] Javascript #1 ~ #15]';
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const [customStyleIndex, setcustomStyleIndex] = React.useState(0);
-
-  //   const handleIndexChange = index => {
-  //     this.setState({
-  //       ...this.state,
-  //       selectedIndex: index
-  //     });
-  //   };
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [customStyleIndex, setcustomStyleIndex] = useState(0);
 
   const handleIndexChange = (index) => {
     setSelectedIndex(index);
@@ -29,10 +22,7 @@ export default function ReviewScreen() {
 
   const handleCustomIndexSelect = (index) => {
     // handle tab selection for custom Tab Selection SegmentedControlTab
-    setcustomStyleIndex((prevState) => ({
-      ...prevState,
-      customStyleIndex: index,
-    }));
+    setcustomStyleIndex(index);
   };
 
   return (
@@ -41,8 +31,7 @@ export default function ReviewScreen() {
       <View style={styles.container2}>
         <Image
           source={{
-            uri:
-              'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+            uri: 'https://lorempixel.com/400/200/nature/6/',
           }}
           style={{ width: 400, height: 300 }}
         />
@@ -61,6 +50,7 @@ export default function ReviewScreen() {
           height: 50,
           backgroundColor: '#F2F2F2',
           padding: 8,
+          marginTop: 8,
         }}
         tabStyle={{
           backgroundColor: '#F2F2F2',
@@ -71,12 +61,11 @@ export default function ReviewScreen() {
         tabTextStyle={{ color: '#444444', fontWeight: 'bold' }}
         activeTabTextStyle={{ color: '#888888' }}
       />
-      {customStyleIndex === 0 && (
-        <Text style={styles.tabContent}> Tab one</Text>
-      )}
-      {customStyleIndex === 1 && (
-        <Text style={styles.tabContent}> Tab two</Text>
-      )}
+      {customStyleIndex === 0 && <Tab1 />}
+      {customStyleIndex === 1 && <Tab2 />}
+      {customStyleIndex === 2 && <Tab3 />}
+      {customStyleIndex === 3 && <Tab4 />}
+      {customStyleIndex === 4 && <Tab5 />}
     </View>
   );
 }
@@ -115,7 +104,9 @@ const styles = StyleSheet.create({
     padding: 16,
     justifyContent: 'space-between',
   },
-  tabsContainerStyle: {
-    padding: 8,
+  tabContent: {
+    color: '#444444',
+    fontSize: 18,
+    margin: 8,
   },
 });

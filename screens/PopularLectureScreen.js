@@ -1,16 +1,10 @@
-import * as React from 'react';
-import { Searchbar } from 'react-native-paper';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  FlatList,
-} from 'react-native';
+import React, { useState } from 'react';
 
-import Icon2 from 'react-native-vector-icons/FontAwesome';
+import {
+  Image, FlatList, StyleSheet, Text, View,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon2 from 'react-native-vector-icons/AntDesign';
 
 const DATA = [
   {
@@ -75,18 +69,7 @@ const DATA = [
   },
 ];
 
-export default function SearchScreen() {
-  const [searchQuery, setSearchQuery] = React.useState('');
-  const [appState, changeState] = React.useState({
-    activeObj: null,
-    objects: [
-      {
-        id: DATA.forEach((ele) => {
-          ele.id;
-        }),
-      },
-    ],
-  });
+export default function PopularLectureScreen() {
   function toggleActive(index) {
     changeState({ ...appState, activeObj: appState.objects[index] });
   }
@@ -100,9 +83,8 @@ export default function SearchScreen() {
   }
 
   const WishListIcon = (item) => (
-    <Icon2
+    <Icon
       name="bookmark"
-      // color={state.bookmark ? "#7de7d7" : "#23484a"}
       color={toggleActiveStyle(item.wishList)}
       size={15}
       // value={state.bookmark}
@@ -113,66 +95,68 @@ export default function SearchScreen() {
     />
   );
 
-  const onChangeSearch = (query) => setSearchQuery(query);
-
-  const LectureCard = (item) => (
-    <View style={styles.card}>
-      <Image style={styles.cardImage} source={{ uri: item.image }} />
-      <View style={styles.cardFooter}>
-        <Text style={styles.socialBarLabel}>{item.likes}</Text>
-        <View style={styles.container3}>{WishListIcon(item)}</View>
-      </View>
-    </View>
-  );
-
   return (
-    <View style={styles.container}>
-      <Searchbar
-        // navigation header 대체 될 수 있음
-        // style={styles.container}
-        placeholder="Search"
-        onChangeText={onChangeSearch}
-        value={searchQuery}
-      />
-      {/* <Header title="Pre-order-lecture" style={styles.Header} /> */}
+    <View>
       <View style={styles.container}>
+        <View style={styles.container2}>
+          <Text>인기 강의</Text>
+          <Icon2 name="right" style={styles.icon2} />
+        </View>
         <FlatList
+          style={styles.list}
+          contentContainerStyle={styles.listContainer}
           data={DATA}
-          horizontal={false}
-          numColumns={2}
+          horizontal
+          //   numColumns={2}
           keyExtractor={(item) => item.id}
           ItemSeparatorComponent={() => <View style={styles.separator} />}
           renderItem={(post) => {
             const { item } = post;
-            return LectureCard(item);
+            return (
+              <View style={styles.card}>
+                <Image style={styles.cardImage} source={{ uri: item.image }} />
+                <View style={styles.cardFooter}>
+                  <Text style={styles.socialBarLabel}>{item.likes}</Text>
+                  <View style={styles.container3}>{WishListIcon(item)}</View>
+                </View>
+              </View>
+            );
           }}
         />
       </View>
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
+    padding: 8,
+    height: 300,
+    marginRight: 12,
   },
   container2: {
-    padding: 5,
-  },
-  container3: {
-    marginTop: 3,
+    marginTop: 8,
     marginLeft: 8,
-    flex: 1,
+    flexDirection: 'row',
   },
-  // list: {
-  //   paddingHorizontal: 5,
-  //   backgroundColor: "#E6E6E6"
-  // },
-  // listContainer: {
-  //   alignItems: "center"
-  // },
-  // 카드 사이의 간격(optional)
-  separator: {
-    // marginTop: 10
+  icon2: {
+    marginTop: 4,
+  },
+  lecture: {
+    // marginTop: 30,
+    // height: 300,
+    marginRight: 30,
+    backgroundColor: '#e93e42',
+  },
+  lectrueInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    justifyContent: 'space-between',
+  },
+  list: {
+    paddingHorizontal: 5,
   },
   /** ****** card ************* */
   card: {
@@ -191,6 +175,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     marginRight: 5,
     marginTop: 10,
+    width: 150,
   },
   cardContent: {
     paddingVertical: 12.5,
@@ -209,8 +194,8 @@ const styles = StyleSheet.create({
   },
   cardImage: {
     flex: 1,
-    height: 150,
-    width: null,
+    height: 30,
+    // width: null
   },
   /** ****** card components ************* */
   share: {
