@@ -17,7 +17,7 @@ import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // import{ AuthContext } from '../components/context';
 
-export function DrawerContent(props) {
+export function MypageDrawerContent(props) {
   //   const paperTheme = useTheme();
   //   const { signOut, toggleTheme } = React.useContext(AuthContext);
 
@@ -136,6 +136,9 @@ export function DrawerContent(props) {
           </Drawer.Section>
         </View>
       </DrawerContentScrollView>
+
+      {/* 로그아웃 */}
+
       {/* <Drawer.Section style={styles.bottomDrawerSection}>
         <DrawerItem
           icon={({ color, size }) => (

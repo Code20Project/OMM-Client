@@ -7,14 +7,16 @@ import Tab5 from './Tab5';
 import PreOrderLectureScreen from './PreOrderLectureScreen';
 import MainTabScreen from './MainTabScreen';
 
-import { DrawerContent } from './DrawerContent';
+import { MypageDrawerContent } from './MypageDrawerContent';
 
 const Drawer = createDrawerNavigator();
 
 export default function Mentee() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
+      <Drawer.Navigator
+        drawerContent={(props) => <MypageDrawerContent {...props} />}
+      >
         <Drawer.Screen name="Home" component={MainTabScreen} />
         <Drawer.Screen
           name="PreOrderLectureScreen"

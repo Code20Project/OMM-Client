@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -22,6 +23,8 @@ const DetailsStack = createStackNavigator();
 
 const Tab = createMaterialBottomTabNavigator();
 
+// ************* BottomTabNav 쪽 *****************
+
 const MainTabScreen = () => (
   <Tab.Navigator initialRouteName="Home" activeColor="#fff">
     <Tab.Screen
@@ -40,7 +43,7 @@ const MainTabScreen = () => (
       component={DetailsStackScreen}
       options={{
         tabBarLabel: '강의 목록',
-        tabBarColor: '#1f65ff',
+        tabBarColor: '#009387',
         tabBarIcon: ({ color }) => (
           <MaterialIcons name="collections" color={color} size={26} />
         ),
@@ -51,7 +54,7 @@ const MainTabScreen = () => (
       component={Tab2}
       options={{
         tabBarLabel: '채팅',
-        tabBarColor: '#694fad',
+        tabBarColor: '#009387',
         tabBarIcon: ({ color }) => (
           <EntypoIcon name="chat" color={color} size={26} />
         ),
@@ -62,20 +65,9 @@ const MainTabScreen = () => (
       component={Tab3}
       options={{
         tabBarLabel: 'calendar',
-        tabBarColor: '#d02860',
+        tabBarColor: '#009387',
         tabBarIcon: ({ color }) => (
           <EntypoIcon name="calendar" color={color} size={26} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="local-grocery-store"
-      component={Tab3}
-      options={{
-        tabBarLabel: '포인트 상점',
-        tabBarColor: '#dfc330',
-        tabBarIcon: ({ color }) => (
-          <MaterialIcons name="local-grocery-store" color={color} size={26} />
         ),
       }}
     />
@@ -84,10 +76,13 @@ const MainTabScreen = () => (
 
 export default MainTabScreen;
 
+// ************ header 쪽 ( 햄버거 포함 ) ****************
+
 const HomeStackScreen = ({ navigation }) => (
   <HomeStack.Navigator
     screenOptions={{
       headerStyle: {
+        // header 전체쪽 색깔
         backgroundColor: '#009387',
       },
       headerTintColor: '#fff',
@@ -101,9 +96,11 @@ const HomeStackScreen = ({ navigation }) => (
       component={HomeScreen}
       options={{
         title: 'Home',
+        // 햄버거 버튼 쪽
         headerLeft: () => (
           <Icon.Button
             name="ios-menu"
+            style={styles.headerLeft}
             size={25}
             backgroundColor="#009387"
             onPress={() => navigation.openDrawer()}
@@ -118,7 +115,8 @@ const DetailsStackScreen = ({ navigation }) => (
   <DetailsStack.Navigator
     screenOptions={{
       headerStyle: {
-        backgroundColor: '#1f65ff',
+        // header 전체쪽 색깔
+        backgroundColor: '#009387',
       },
       headerTintColor: '#fff',
       headerTitleStyle: {
@@ -131,14 +129,24 @@ const DetailsStackScreen = ({ navigation }) => (
       component={HomeScreen}
       options={{
         headerLeft: () => (
+          // 햄버거 버튼 쪽
           <Icon.Button
             name="ios-menu"
+            style={styles.headerLeft}
             size={25}
-            backgroundColor="#1f65ff"
+            backgroundColor="#009387"
             onPress={() => navigation.openDrawer()}
           />
         ),
       }}
     />
+
+    {/* 계속 추가해줘야 함 */}
   </DetailsStack.Navigator>
 );
+
+const styles = StyleSheet.create({
+  headerLeft: {
+    marginLeft: 16,
+  },
+});
