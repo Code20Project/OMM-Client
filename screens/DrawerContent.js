@@ -13,7 +13,8 @@ import {
   Switch,
 } from 'react-native-paper';
 
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import AntDesignIcon from 'react-native-vector-icons/AntDesign';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // import{ AuthContext } from '../components/context';
 
 export function DrawerContent(props) {
@@ -45,47 +46,62 @@ export function DrawerContent(props) {
           <Drawer.Section style={styles.drawerSection}>
             <DrawerItem
               icon={({ color, size }) => (
-                <Icon name="home-outline" color={color} size={size} />
+                <MaterialCommunityIcons
+                  name="home-outline"
+                  color={color}
+                  size={size}
+                />
               )}
-              label="Home"
+              label="강의 보기"
               onPress={() => {
                 props.navigation.navigate('Home');
               }}
             />
             <DrawerItem
               icon={({ color, size }) => (
-                <Icon name="account-outline" color={color} size={size} />
+                <MaterialCommunityIcons
+                  name="account-outline"
+                  color={color}
+                  size={size}
+                />
               )}
-              label="Profile"
+              label="나의 프로필 보기"
               onPress={() => {
+                // 프로필 화면으로 이동
                 props.navigation.navigate('Profile');
               }}
             />
             <DrawerItem
               icon={({ color, size }) => (
-                <Icon name="bookmark-outline" color={color} size={size} />
+                <AntDesignIcon name="bars" color={color} size={size} />
               )}
-              label="Bookmarks"
+              label="나의 강의 목록"
               onPress={() => {
+                // my lecture list 로 이동
                 props.navigation.navigate('BookmarkScreen');
               }}
             />
             <DrawerItem
               icon={({ color, size }) => (
-                <Icon name="settings-outline" color={color} size={size} />
+                <AntDesignIcon name="heart" color={color} size={size} />
               )}
-              label="Settings"
+              label="나의 위시리스트"
               onPress={() => {
+                // wish list 이동
                 props.navigation.navigate('SettingsScreen');
               }}
             />
             <DrawerItem
               icon={({ color, size }) => (
-                <Icon name="account-check-outline" color={color} size={size} />
+                <MaterialCommunityIcons
+                  name="clock-check-outline"
+                  color={color}
+                  size={size}
+                />
               )}
-              label="Support"
+              label="예약 완료한 강의"
               onPress={() => {
-                props.navigation.navigate('SupportScreen');
+                props.navigation.navigate('PreOrderLectureScreen');
               }}
             />
           </Drawer.Section>
@@ -106,7 +122,11 @@ export function DrawerContent(props) {
           <Drawer.Section style={styles.bottomDrawerSection}>
             <DrawerItem
               icon={({ color, size }) => (
-                <Icon name="exit-to-app" color={color} size={size} />
+                <MaterialCommunityIcons
+                  name="exit-to-app"
+                  color={color}
+                  size={size}
+                />
               )}
               label="Sign Out"
               onPress={() => {
