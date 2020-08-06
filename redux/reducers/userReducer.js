@@ -1,5 +1,5 @@
 import {
-  SET_USERID, SET_EMAIL, SET_NAME, SET_TOKEN, SET_LOGIN,
+  SET_USERID, SET_EMAIL, SET_NAME, SET_TOKEN, SET_LOGIN, SET_POSITION,
 } from '../constants';
 
 // 기본값을 설정해주고
@@ -9,6 +9,7 @@ const initialState = {
   name: '',
   token: '',
   isLogin: false,
+  position: '',
 };
 
 const userReducer = (state = initialState, action) => {
@@ -25,6 +26,8 @@ const userReducer = (state = initialState, action) => {
       return { ...state, token: action.token };
     case SET_LOGIN:
       return { ...state, isLogin: action.isLogin };
+    case SET_POSITION:
+      return { ...state, position: action.position };
     default:
       return state;
   }
