@@ -5,7 +5,7 @@ import {
 
 // redux 관련 import
 // import { connect } from 'react-redux'; // connect 함수를 통해서 redux와 연결할 수 있습니다.
-// import {mapStateToProps, mapDispatchToProps} from '../redux/reduxFunction';
+// import {mapStateToProps, mapDispatchToProps} from '../redux/reduxFunctions';
 
 import Constants from 'expo-constants';
 
