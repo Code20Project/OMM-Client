@@ -3,6 +3,10 @@ import {
   StyleSheet, View, Text, Button, ImageBackground, Platform,
 } from 'react-native';
 
+// redux 관련 import
+// import { connect } from 'react-redux'; // connect 함수를 통해서 redux와 연결할 수 있습니다.
+// import {mapStateToProps, mapDispatchToProps} from '../redux/reduxFunction';
+
 import Constants from 'expo-constants';
 
 import mainStyle from '../styles/mainStyle';
@@ -43,3 +47,6 @@ export default function Main({ navigation }) {
     </View>
   );
 }
+
+// Main 컴포넌트와 user라는 reducer가 연결 합니다.
+// export default connect(mapStateToProps, mapDispatchToProps)(Main);
