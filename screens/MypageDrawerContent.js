@@ -17,7 +17,7 @@ import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // import{ AuthContext } from '../components/context';
 
-export function MypageDrawerContent(props) {
+export default function MypageDrawerContent(props) {
   //   const paperTheme = useTheme();
   //   const { signOut, toggleTheme } = React.useContext(AuthContext);
 
@@ -43,6 +43,7 @@ export function MypageDrawerContent(props) {
             <Drawer.Section style={styles.bottomDrawerSection} />
           </View>
 
+          {/* Mypage drawer 부분 */}
           <Drawer.Section style={styles.drawerSection}>
             <DrawerItem
               icon={({ color, size }) => (
@@ -68,7 +69,7 @@ export function MypageDrawerContent(props) {
               label="나의 프로필 보기"
               onPress={() => {
                 // 프로필 화면으로 이동
-                props.navigation.navigate('Profile');
+                props.navigation.navigate('Lecture');
               }}
             />
             <DrawerItem
@@ -78,7 +79,7 @@ export function MypageDrawerContent(props) {
               label="나의 강의 목록"
               onPress={() => {
                 // my lecture list 로 이동
-                props.navigation.navigate('BookmarkScreen');
+                props.navigation.navigate('SettingsScreen');
               }}
             />
             <DrawerItem

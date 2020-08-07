@@ -62,7 +62,7 @@ const DATA = [
     wishList: false,
   },
 ];
-export default function MyWishListScreen() {
+export default function MyLectureListScreen() {
   const [appState, changeState] = React.useState({
     activeObj: null,
     objects: [
