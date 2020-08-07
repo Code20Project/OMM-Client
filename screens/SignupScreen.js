@@ -42,7 +42,7 @@ export default function Signup({ route, navigation }) {
   };
 
   // 값들을 셋팅하는 함수
-  const [mentee_name, setMentee_name] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setComfirmPassword] = useState('');
@@ -65,7 +65,7 @@ export default function Signup({ route, navigation }) {
 
   const setValueHandler = (key, value) => {
     switch (key) {
-      case 'mentee_name': setMentee_name(value);
+      case 'username': setUsername(value);
         break;
       case 'email': setEmail(value);
         break;
@@ -86,7 +86,7 @@ export default function Signup({ route, navigation }) {
 
   // mentee 서버에 보내줄 정보
   const menteeInputDataObj = {
-    mentee_name,
+    username,
     email,
     password,
     sex: selectedSex,
@@ -95,7 +95,7 @@ export default function Signup({ route, navigation }) {
   };
 
   const mentorInputDataObj = {
-    mentee_name,
+    username,
     email,
     password,
     sex: selectedSex,
@@ -265,7 +265,7 @@ export default function Signup({ route, navigation }) {
             <TextInput
               style={styles.textInput}
               placeholder="홍길동"
-              onChangeText={(text) => setValueHandler('mentee_name', text)}
+              onChangeText={(text) => setValueHandler('username', text)}
             />
           </View>
         </View>
