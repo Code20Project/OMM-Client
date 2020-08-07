@@ -176,14 +176,34 @@ export default function Signup({ route, navigation }) {
           // requestAPI
           if (user === 'mentor') {
             requestAPI.mentor.post('/signup', mentorInputDataObj)
-              .then((json) => {
-                console.log(json);
+              .then((res) => {
+                if (res) { // body가 있으면
+                  if (res === 'Created') { // res.status 201
+                    Alert.alert(`${user} Signup`, '회원가입 되었습니다.');
+                    // 성공하면 mentor Login 화면으로 이동하는 이벤트가 발생되어야 한다.
+                    navigation.navigate('Login', { user: 'mentor' });
+                  } else {
+                    Alert.alert(`${user} Signup`, '이미 존재하는 이메일입니다.');
+                  }
+                } else { // 응답이 성공적이지 않으면
+                  Alert.alert(`${user} Signup`, '서버에 응답에 문제가 생겼습니다.');
+                }
               });
-            // 성공하면 mentor Login 화면으로 이동하는 이벤트가 발생되어야 한다.
           } else if (user === 'mentee') {
             requestAPI.mentee.post('/signup', menteeInputDataObj)
-              .then((json) => console.log(json));
-            // 성공하면 mentee Login 화면으로 이동하는 이벤트가 발생되어야 한다.
+              .then((res) => {
+                if (res) { // body가 있으면
+                  if (res === 'Created') { // res.status 201
+                    Alert.alert(`${user} Signup`, '회원가입 되었습니다.');
+                    // 성공하면 mentee Login 화면으로 이동하는 이벤트가 발생되어야 한다.
+                    navigation.navigate('Login', { user: 'mentee' });
+                  } else {
+                    Alert.alert(`${user} Signup`, '이미 존재하는 이메일입니다.');
+                  }
+                } else { // 응답이 성공적이지 않으면
+                  Alert.alert(`${user} Signup`, '서버에 응답에 문제가 생겼습니다.');
+                }
+              });
           }
         }}
       />

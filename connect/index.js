@@ -10,7 +10,18 @@ module.exports = {
         'Content-Type': 'application/json',
       },
     })
-      .then((res) => res.json()),
+      .then((res) => {
+        if (res.status === 200) {
+          return res.json();
+        }
+        if (res.status === 201) {
+          return res.text();
+        }
+      // 그 이외의 status 들은 클라이언트 쪽에서 undefined
+      })
+      .catch((err) => {
+        console.log('err: ', err);
+      }),
   },
   mentee: {
     get: (url) => fetch(`http://14.50.138.127:3001/mentee${url}`)
