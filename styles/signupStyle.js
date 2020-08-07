@@ -48,4 +48,14 @@ module.exports = {
     marginTop: 30,
     width: '50%',
   },
+  img: {
+    width: 25,
+    height: 35,
+  },
+  imgView: {
+    height: 30,
+    width: windowWidth * 0.4,
+    marginLeft: 20,
+    paddingLeft: 10,
+  },
 };
