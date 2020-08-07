@@ -1,8 +1,15 @@
-import { SET_USERID, SET_TOKEN, SET_LOGIN } from '../constants';
+import {
+  SET_EMAIL, SET_NAME, SET_TOKEN, SET_LOGIN, SET_POSITION,
+} from '../constants';
 
-export const setUserId = (userId) => ({
-  type: SET_USERID,
-  userId,
+export const setEmail = (email) => ({
+  type: SET_EMAIL,
+  email,
+});
+
+export const setName = (name) => ({
+  type: SET_NAME,
+  name,
 });
 
 export const setToken = (token) => ({
@@ -13,4 +20,9 @@ export const setToken = (token) => ({
 export const setIsLogin = (isLogin) => ({
   type: SET_LOGIN,
   isLogin,
+});
+
+export const setPosition = (postion) => ({
+  type: SET_POSITION,
+  position,
 });
