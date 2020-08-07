@@ -27,7 +27,7 @@ const Tab = createMaterialBottomTabNavigator();
 
 // ************* BottomTabNav 쪽 *****************
 
-const MainTabScreen = () => (
+const ProfileTabScreen = () => (
   <Tab.Navigator initialRouteName="Home" activeColor="#fff">
     <Tab.Screen
       name="Home"
@@ -63,20 +63,20 @@ const MainTabScreen = () => (
       }}
     />
     <Tab.Screen
-      name="Point Store"
+      name="calendar"
       component={Tab3}
       options={{
-        tabBarLabel: 'Point Store',
+        tabBarLabel: 'calendar',
         tabBarColor: '#009387',
         tabBarIcon: ({ color }) => (
-          <EntypoIcon name="shop" color={color} size={26} />
+          <EntypoIcon name="calendar" color={color} size={26} />
         ),
       }}
     />
   </Tab.Navigator>
 );
 
-export default MainTabScreen;
+export default ProfileTabScreen;
 
 // ************ header 쪽 ( 햄버거 포함 ) ****************
 
