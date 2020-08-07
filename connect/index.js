@@ -23,8 +23,17 @@ module.exports = {
         'Content-Type': 'application/json',
       },
     })
-    // console.log('token: ', res.headers.get('x-access-token'));
-    // headers에 담겨져 있는 jwt token을 가져오도록 한다.
-      .then((res) => res.json()),
+      .then((res) => {
+        if (res.status === 200) {
+          return res.json();
+        }
+        if (res.status === 201) {
+          return res.text();
+        }
+        // 그 이외의 status 들은 클라이언트 쪽에서 undefined
+      })
+      .catch((err) => {
+        console.log('err: ', err);
+      }),
   },
 };

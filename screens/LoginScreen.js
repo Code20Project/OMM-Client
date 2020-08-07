@@ -64,10 +64,13 @@ export default function Login({ route, navigation }) {
               });
           } else if (user === 'mentee') {
             requestAPI.mentee.post('/signin', inputDataObj)
-              .then((json) => {
-                if (json.id) { // 응답으로 id가 존재하면 로그인이 성공했다는 것이다.
+              .then((res) => {
+                console.log(res);
+                if (res) { // res의 값이 undefined가 아니면 status가 200, 성공
+                  // res에 담겨있는 username과 email이 store에 저장되어야 한다.
                   // mentee 홈 화면으로 이동하는 이벤트가 발생되어야 한다.
                   console.log('mentee home화면으로 이동합니다.');
+                  // navigation.navigate();
                 } else { // 로그인에 실패
                   Alert.alert(user, '로그인에 실패했습니다.');
                   // state값들을 초기화 해줘야 한다.
