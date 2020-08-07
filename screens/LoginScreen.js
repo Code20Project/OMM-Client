@@ -54,8 +54,8 @@ export default function Login({ route, navigation }) {
           // requestAPI
           if (user === 'mentor') {
             requestAPI.mentor.post('/signin', inputDataObj)
-              .then((json) => {
-                if (json.id) { // 응답으로 id가 존재하면 로그인이 성공했다는 것이다.
+              .then((res) => {
+                if (res) { // 응답으로 id가 존재하면 로그인이 성공했다는 것이다.
                   // mentor 홈 화면으로 이동하는 이벤트가 발생되어야 한다.
                   console.log('mentor home화면으로 이동합니다.');
                 } else { // 로그인에 실패
