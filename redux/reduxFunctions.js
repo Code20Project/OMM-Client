@@ -5,11 +5,10 @@ import { setToken } from './actions';
 
 // props에 store의 값들을 넣는다.
 export const mapStateToProps = (state) => ({
-  userId: state.userReducer.userId,
   token: state.userReducer.token,
-  isLogin: state.userReducer.isLogin,
 });
-  // Reducer에 action을 알리는 함수 dispatch를 어떻게 props에 엮을 지 정하는 함수
+
+// Reducer에 action을 알리는 함수 dispatch를 어떻게 props에 엮을 지 정하는 함수
 export const mapDispatchToProps = (dispatch) => ({
   dispatchSetToken: (token) => dispatch(setToken(token)),
 });
