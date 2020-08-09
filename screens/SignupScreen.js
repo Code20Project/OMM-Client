@@ -182,7 +182,7 @@ export default function Signup({ route, navigation }) {
                     Alert.alert(`${user} Signup`, '회원가입 되었습니다.');
                     // 성공하면 mentor Login 화면으로 이동하는 이벤트가 발생되어야 한다.
                     navigation.navigate('Login', { user: 'mentor' });
-                  } else {
+                  } else if (res === 'Conflict') {
                     Alert.alert(`${user} Signup`, '이미 존재하는 이메일입니다.');
                   }
                 } else { // 응답이 성공적이지 않으면
@@ -197,7 +197,7 @@ export default function Signup({ route, navigation }) {
                     Alert.alert(`${user} Signup`, '회원가입 되었습니다.');
                     // 성공하면 mentee Login 화면으로 이동하는 이벤트가 발생되어야 한다.
                     navigation.navigate('Login', { user: 'mentee' });
-                  } else {
+                  } else if (res === 'Conflict') {
                     Alert.alert(`${user} Signup`, '이미 존재하는 이메일입니다.');
                   }
                 } else { // 응답이 성공적이지 않으면
