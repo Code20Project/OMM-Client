@@ -22,7 +22,7 @@ export const setIsLogin = (isLogin) => ({
   isLogin,
 });
 
-export const setPosition = (postion) => ({
+export const setPosition = (position) => ({
   type: SET_POSITION,
   position,
 });
