@@ -3,15 +3,22 @@ import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
+// **** Icon ****
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
-import HomeStack from './Home';
+
+// *** stack screen ****
 import CollectLectureStack from './CollectLecture';
+import HomeStack from './Home';
 import ChatStack from './Chat';
 import LectureReservationStack from './LectureReservation';
 import PointStoreStack from './PointStore';
+
+// import { MypageDrawerContent } from "./MypageDrawerContent";
+// import MainTabScreen from "./MainTabScreen";
+// const Drawer = createDrawerNavigator();
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -73,10 +80,6 @@ export default function Mentee() {
               <EntypoIcon name="calendar" color={color} size={26} />
             ),
           }}
-          //   tabBarLabel: "Home",
-          // tabBarColor: "#009387",
-          // tabBarIcon: ({ color }) => (
-          //   <Icon name="ios-home" color={color} size={26} />
         />
         <Tab.Screen
           name="PointStore"

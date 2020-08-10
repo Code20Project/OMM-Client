@@ -15,7 +15,18 @@ const PointStoreStack = createStackNavigator();
 
 export default function PointStoreStackComponent() {
   return (
-    <PointStoreStack.Navigator initialRouteName="Calender">
+    <PointStoreStack.Navigator
+      initialRouteName="Calender"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#009387',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}
+    >
       <PointStoreStack.Screen name="Calender" component={Calender} />
       <PointStoreStack.Screen
         name="LectureReservation"

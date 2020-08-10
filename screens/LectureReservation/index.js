@@ -15,7 +15,18 @@ const LectureReservationStack = createStackNavigator();
 
 export default function LectureReservationStackComponent() {
   return (
-    <LectureReservationStack.Navigator initialRouteName="Calender">
+    <LectureReservationStack.Navigator
+      initialRouteName="Calender"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#009387',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}
+    >
       <LectureReservationStack.Screen name="Calender" component={Calender} />
       <LectureReservationStack.Screen
         name="LectureReservation"
