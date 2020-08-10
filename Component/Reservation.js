@@ -1,173 +1,125 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Image, TextInput } from "react-native";
-import Footer from "../Component/Footer";
-import Header from "../Component/Header";
-import TimeReservation from "../Component/TimeReservation";
+import Footer from "./Footer";
+import Header from "./Header";
+import TimeReservation from "./TimeReservation";
+import DateTextBox from "./DateTextBox";
 
 // import mainStyle from "../styles/mainStyle";
 
 //* 클릭 이벤트 && 화면 2개 더 Build up 하기!!
-function Reservation() {
+function Reservation(props) {
   return (
     <View style={styles.ReservationContainer}>
-      <Footer style={styles.Footer}></Footer>
-      <Header title="Lecture reservation" style={styles.Header}></Header>
+      <Header title="Lecture reservation" style={styles.Header} />
+      <DateTextBox style={styles.DateTextBox} />
 
-      <View style={styles.imageRow}>
-        <Image
-          source={require("../assets/splash.png")}
-          resizeMode="contain"
-          style={styles.image}
-        ></Image>
-        <Image
-          source={require("../assets/splash.png")}
-          resizeMode="contain"
-          style={styles.image1}
-        ></Image>
-      </View>
+      <View style={styles.testRow}>
+        <View style={styles.imageRow}>
+          <Image
+            source={require("../assets/splash.png")}
+            resizeMode="contain"
+            style={styles.image1}
+          />
+          <Image
+            source={require("../assets/splash.png")}
+            resizeMode="contain"
+            style={styles.image1}
+          />
+        </View>
 
-      <View style={styles.imageRow2}>
-        <Image
-          source={require("../assets/splash.png")}
-          resizeMode="contain"
-          style={styles.image1}
-        ></Image>
-        <Image
-          source={require("../assets/splash.png")}
-          resizeMode="contain"
-          style={styles.image1}
-        ></Image>
-      </View>
+        <View style={styles.imageRow2}>
+          <Image
+            source={require("../assets/splash.png")}
+            resizeMode="contain"
+            style={styles.image1}
+          />
+          <Image
+            source={require("../assets/splash.png")}
+            resizeMode="contain"
+            style={styles.image1}
+          />
+        </View>
 
-      <View style={styles.TimeReservationStack}>
+        {/* <View style={styles.TimeReservationStack}> */}
         <TimeReservation
-          style={styles.button}
           toastMessage="07:30~10:00"
           buttonText="예약완료 >"
           style={styles.TimeReservation}
-        ></TimeReservation>
+        />
+
         <TimeReservation
           toastMessage="13:00~15:20"
           buttonText="예약가능 >"
-          style={styles.TimeReservation2}
-        ></TimeReservation>
+          style={styles.TimeReservation}
+        />
 
         <TimeReservation
           style={styles.button}
           buttonText="UNDO"
           toastMessage="15:30~18:00"
           buttonText="예약불가 >"
-          style={styles.TimeReservation3}
-        ></TimeReservation>
+          style={styles.TimeReservation}
+        />
+        {/* </View> */}
 
-        <TextInput
-          placeholder="2020.00.00"
-          style={styles.textInput}
-        ></TextInput>
+        <Footer style={styles.Footer} />
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  testRow: {
+    marginTop: -66,
+  },
   ReservationContainer: {
     flex: 1,
   },
+  Header: {
+    backgroundColor: "rgba(85,136,136,1)",
+    marginTop: 24,
+  },
+  DateTextBox: {
+    alignItems: "center",
+  },
   Footer: {
     height: 56,
-    width: 360,
     backgroundColor: "rgba(85,136,136,1)",
-    marginTop: 684,
-  },
-  Header: {
-    height: 55,
-    width: 360,
-    backgroundColor: "rgba(85,136,136,1)",
-    marginTop: -717,
-  },
-  ViewContainer: {
-    width: 360,
-    height: 30,
+    marginTop: 10,
   },
   TimeReservation: {
-    width: 360,
-    height: 48,
+    height: 51,
     backgroundColor: "#fff",
     shadowColor: "rgba(0,0,0,1)",
-    shadowOffset: {
-      height: 1,
-      width: 1,
-    },
     elevation: 5,
-    shadowOpacity: 1,
-    shadowRadius: 0,
-  },
-  TimeReservation2: {
-    width: 362,
-    height: 48,
-    backgroundColor: "#fff",
-    shadowColor: "rgba(0,0,0,1)",
-    shadowOffset: {
-      height: 1,
-      width: 1,
-    },
-    elevation: 5,
-    shadowOpacity: 1,
-    shadowRadius: 0,
-    marginLeft: -2,
-  },
-  TimeReservation3: {
-    width: 362,
-    height: 48,
-    backgroundColor: "#fff",
-    shadowColor: "rgba(0,0,0,1)",
-    shadowOffset: {
-      height: 1,
-      width: 1,
-    },
-    elevation: 5,
-    shadowOpacity: 1,
-    shadowRadius: 0,
-    marginLeft: -2,
-  },
-  image: {
-    width: 179,
-    height: 210,
   },
   image1: {
     width: 179,
-    height: 210,
-    marginLeft: 2,
+    height: 170,
   },
   image2: {
     top: 0,
     left: 0,
     width: 179,
-    height: 210,
+    height: 100,
     position: "absolute",
   },
-  image1: {
-    width: 179,
-    height: 210,
-    marginLeft: 4,
-  },
+  //* **************사진(image)******************/
   imageRow: {
-    height: 210,
+    height: 270,
     flexDirection: "row",
-    marginLeft: 2,
+    justifyContent: "center",
+    alignItems: "center",
   },
   imageRow2: {
-    height: 210,
+    height: 130,
     flexDirection: "row",
-  },
-  TimeReservationStack: {
-    width: 362,
-    height: 254,
-    marginTop: 41,
-    marginLeft: -2,
+    justifyContent: "center",
+    alignItems: "center",
   },
   textInput: {
-    fontFamily: "roboto-700",
+    // fontFamily: "DancingScript-Bold",
     color: "#121212",
     height: 45,
     width: 362,

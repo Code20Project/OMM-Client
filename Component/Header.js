@@ -25,18 +25,8 @@ function Header(props) {
       <View style={styles.leftIconButtonStackRowFiller} />
 
       <View style={styles.rightIconsWrapper}>
-        <TouchableOpacity
-          style={styles.iconButton}
-          // onPress={() => this.props.navigation.navigate("Details")}
-        >
-          <MaterialCommunityIconsIcon name="magnify" style={styles.rightIcon} />
-        </TouchableOpacity>
-
         <TouchableOpacity style={styles.iconButton}>
-          <MaterialCommunityIconsIcon
-            name="dots-vertical"
-            style={styles.rightIcon}
-          />
+          <MaterialCommunityIconsIcon name="magnify" style={styles.rightIcon} />
         </TouchableOpacity>
       </View>
     </View>
