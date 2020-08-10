@@ -44,7 +44,5 @@
     "react/no-array-index-key": "off",
     "react/no-this-in-sfc": "off",
     "no-unused-expressions": "off",
-    "react/no-unescaped-entities": "off",
-    "react/jsx-props-no-spreading": "off"
   }
 }
