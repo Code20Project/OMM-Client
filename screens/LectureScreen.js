@@ -5,11 +5,11 @@ import {
 
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 
-import Tab1 from './Tab1';
-import Tab2 from './Tab2';
-import Tab3 from './Tab3';
-import Tab4 from './Tab4';
-import Tab5 from './Tab5';
+import Tab1 from './LectureTab/Tab1';
+import Tab2 from './LectureTab/Tab2';
+import Tab3 from './LectureTab/Tab3';
+import Tab4 from './LectureTab/Tab4';
+import Tab5 from './LectureTab/Tab5';
 
 export default function ReviewScreen() {
   const name = '[Programming] Javascript #1 ~ #15]';

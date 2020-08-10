@@ -4,9 +4,9 @@ import { View, Text, FlatList } from 'react-native';
 
 import { ScrollView } from 'react-native-gesture-handler';
 
-import NewLectureScreen from './NewLectureScreen';
-import RecommendationLectureScreen from './RecommendationLectureScreen';
-import PopularLectureScreen from './PopularLectureScreen';
+import NewLectureScreen from '../NewLectureScreen';
+import RecommendationLectureScreen from '../RecommendationLectureScreen';
+import PopularLectureScreen from '../PopularLectureScreen';
 
 export default function HomeScreen() {
   return (

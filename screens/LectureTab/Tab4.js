@@ -5,8 +5,8 @@ import {
 import { ListItem } from 'react-native-elements';
 
 import StarRating from 'react-native-star-rating';
-import StarActive from '../assets/star_rate-black-18dp.svg';
-import StarInActive from '../assets/star_border-black-18dp.svg';
+import StarActive from '../../assets/star_rate-black-18dp.svg';
+import StarInActive from '../../assets/star_border-black-18dp.svg';
 
 const list = [
   {
