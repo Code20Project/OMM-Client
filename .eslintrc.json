@@ -44,5 +44,6 @@
     "react/no-array-index-key": "off",
     "react/no-this-in-sfc": "off",
     "no-unused-expressions": "off",
+    "consistent-return": "off"
   }
 }

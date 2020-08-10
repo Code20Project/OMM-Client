@@ -5,7 +5,7 @@ import {
 import { RadioButton } from 'react-native-paper';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-// mentor 자격인증 사진 업로드를 구현하기 위한 모듈
+// mentor 업로드를 구현하기 위한 모듈
 import * as Permissions from 'expo-permissions';
 // mentor MediaLibrary를 이용해 사진 정보 가져오기 위한 모듈
 import * as MediaLibrary from 'expo-media-library';
