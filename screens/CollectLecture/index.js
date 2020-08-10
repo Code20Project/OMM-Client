@@ -14,7 +14,18 @@ const CollectureLectureStack = createStackNavigator();
 
 export default function CollectureLectureStackComponent() {
   return (
-    <CollectureLectureStack.Navigator initialRouteName="CollectLecture">
+    <CollectureLectureStack.Navigator
+      initialRouteName="CollectLecture"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#009387',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}
+    >
       <CollectureLectureStack.Screen
         name="CollectLecture"
         component={CollectureLectureScreen}

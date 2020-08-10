@@ -15,7 +15,18 @@ const ChatStack = createStackNavigator();
 
 export default function ChatStackComponent() {
   return (
-    <ChatStack.Navigator initialRouteName="Calender">
+    <ChatStack.Navigator
+      initialRouteName="Calender"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#009387',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}
+    >
       <ChatStack.Screen name="Calender" component={Calender} />
       <ChatStack.Screen
         name="LectureReservation"
