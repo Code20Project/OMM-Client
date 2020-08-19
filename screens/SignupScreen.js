@@ -42,7 +42,7 @@ export default function Signup({ route, navigation }) {
   };
 
   // 값들을 셋팅하는 함수
-  const [mentee_name, setMentee_name] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setComfirmPassword] = useState('');
@@ -65,7 +65,7 @@ export default function Signup({ route, navigation }) {
 
   const setValueHandler = (key, value) => {
     switch (key) {
-      case 'mentee_name': setMentee_name(value);
+      case 'username': setUsername(value);
         break;
       case 'email': setEmail(value);
         break;
@@ -86,7 +86,7 @@ export default function Signup({ route, navigation }) {
 
   // mentee 서버에 보내줄 정보
   const menteeInputDataObj = {
-    mentee_name,
+    username,
     email,
     password,
     sex: selectedSex,
@@ -95,7 +95,7 @@ export default function Signup({ route, navigation }) {
   };
 
   const mentorInputDataObj = {
-    mentee_name,
+    username,
     email,
     password,
     sex: selectedSex,
@@ -182,7 +182,7 @@ export default function Signup({ route, navigation }) {
                     Alert.alert(`${user} Signup`, '회원가입 되었습니다.');
                     // 성공하면 mentor Login 화면으로 이동하는 이벤트가 발생되어야 한다.
                     navigation.navigate('Login', { user: 'mentor' });
-                  } else {
+                  } else if (res === 'Conflict') {
                     Alert.alert(`${user} Signup`, '이미 존재하는 이메일입니다.');
                   }
                 } else { // 응답이 성공적이지 않으면
@@ -197,7 +197,7 @@ export default function Signup({ route, navigation }) {
                     Alert.alert(`${user} Signup`, '회원가입 되었습니다.');
                     // 성공하면 mentee Login 화면으로 이동하는 이벤트가 발생되어야 한다.
                     navigation.navigate('Login', { user: 'mentee' });
-                  } else {
+                  } else if (res === 'Conflict') {
                     Alert.alert(`${user} Signup`, '이미 존재하는 이메일입니다.');
                   }
                 } else { // 응답이 성공적이지 않으면
@@ -265,7 +265,7 @@ export default function Signup({ route, navigation }) {
             <TextInput
               style={styles.textInput}
               placeholder="홍길동"
-              onChangeText={(text) => setValueHandler('mentee_name', text)}
+              onChangeText={(text) => setValueHandler('username', text)}
             />
           </View>
         </View>
