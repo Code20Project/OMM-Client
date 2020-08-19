@@ -9,6 +9,8 @@ import { Provider } from 'react-redux';
 import Main from './screens/MainScreen';
 import Login from './screens/LoginScreen';
 import Signup from './screens/SignupScreen';
+import Mentee from './screens/Mentee';
+import Profile from './screens/ProfileScreen';
 // import Reservation from "../OMM-client/Component/Reservation";
 
 // redux 관련
@@ -29,6 +31,8 @@ export default function App() {
           <Stack.Screen name="Main" component={Main} options={{ headerShown: false } /* 헤더바를 숨긴다 */} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Signup" component={Signup} />
+          <Stack.Screen name="Mentee" component={Mentee} />
+          <Stack.Screen name="Profile" component={Profile} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

@@ -32,7 +32,7 @@ function Profile({ navigation, position }) {
   const mentee = 'mentee';
 
   // store에 있는 position을 참조할 수 있도록 해야 한다.
-  const user = position;
+  const [userPosition, setUserPosition] = useState(position);
   // fetch에서 받아온 데이터를 초기값으로 셋팅해줘야 한다.
   // 값들을 셋팅하는 함수
   const [username, setUsername] = useState('');
@@ -108,7 +108,7 @@ function Profile({ navigation, position }) {
       inputDataObj[uniq[i]] = choiceData(uniq[i]);
     }
     // 담아준 정보를 서버에 보내주도록 한다.
-    if (user === mentor) {
+    if (position === mentor) {
       // console.log('data: ', inputDataObj);
       // requestAPI.mentor.patch('/mypage/profile', inputDataObj);
 
@@ -118,8 +118,10 @@ function Profile({ navigation, position }) {
       requestAPI.mentor.test(store.getState().userReducer.token);
     }
 
-    if (user === mentee) {
-      requestAPI.mentee.patch('/mypage/profile', inputDataObj);
+    if (position === mentee) {
+      requestAPI.mentee.patch('/mypage/profile', inputDataObj)
+        .then()
+        .catch((err) => console.log(`mentee PATCH profile ERR: ${err}`));
     }
     // for(let key in inputDataObj)
     // {
@@ -129,7 +131,7 @@ function Profile({ navigation, position }) {
 
   // 강사소개 rendering
   const renderingInroduceField = () => {
-    if (user === mentor) {
+    if (position === mentor) {
       return (
         <View style={styles.textfield}>
           <View style={styles.text}>
@@ -151,16 +153,18 @@ function Profile({ navigation, position }) {
     }
   };
 
-  const setRequestData = (res) => {
-    setUsername(res.username);
-    setNickname(res.nickname);
-    setPhone(res.phone);
-    setSelectedSex(res.sex);
-    setBirthday(res.birthday);
+  const setRequestData = async (res) => {
+    await setUsername(res.username);
+    await setNickname(res.nickname);
+    await setPhone(res.phone);
+    await setSelectedSex(res.sex);
+    await setBirthday(res.birthday);
   };
+
   useEffect(() => { // 랜더링이 끝나면 useEffect[](componentDidMount) 훅에 입력된 함수가 호출된다.
     // profile get 실행
     console.log('position: ', position);
+    console.log(u);
     if (position === mentor) {
       requestAPI
         .then((res) => {
@@ -168,6 +172,7 @@ function Profile({ navigation, position }) {
         })
         .catch((err) => {});
     } else if (position === mentee) {
+      console.log('check!!!');
       requestAPI.mentee.get('/mypage/profile')
         .then((res) => {
           setRequestData(res);
@@ -187,6 +192,7 @@ function Profile({ navigation, position }) {
           <View>
             <TextInput
               style={styles.textInput}
+              editable={false}
               value={username}
               onChangeText={(text) => setValueHandler('username', text)}
             />
@@ -199,7 +205,8 @@ function Profile({ navigation, position }) {
           <View>
             <TextInput
               style={styles.textInput}
-              value={nickname}
+              placeholder="추후 기능 제공 :)"
+              editable={false} // DB에 컬럼이 있지 않아 잠가놓았습니다.
               onChangeText={(text) => setValueHandler('nickname', text)}
             />
           </View>

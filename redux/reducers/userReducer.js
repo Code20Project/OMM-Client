@@ -6,7 +6,7 @@ import {
 const initialState = {
   email: '',
   name: '',
-  token: '',
+  token: undefined,
   isLogin: false,
   position: '',
 };
